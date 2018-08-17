@@ -1,11 +1,12 @@
 <template>
   <div class="project-list">
     <h1>{{ msg }}</h1>
-    <div v-for="project in projects" :key="project.id">
-      <h3>{{ project.name }}</h3>
+    <div v-if="project.id === currentId" class="project" v-for="project in projects" :key="project.id">
+      <h2>{{ project.name }}</h2>
       <p>{{ project.description }}</p>
-      <button @click="goToProject(id)">Go to Project</button>
     </div>
+    <button @click="nextProject">Next Project</button>
+    <button @click="prevProject">Previous Project</button>
   </div>
 </template>
 
@@ -15,25 +16,43 @@ export default {
   props: {
     msg: String
   },
-  data: function() {
+  data: function () {
     return {
+      currentId: 1,
       projects: [
         {
           id: 1,
           name: 'Slack Rebrand',
-          description: 'Rebrand of the popular team collaboration app'
+          description: 'Rebrand of the popular team collaboration app',
         },
         {
           id: 2,
           name: 'HYPEBEAST Awards',
-          description: 'Award show created with branding and a website mockup for scheduling and event information'
+          description: 'Award show created with branding and a website mockup for scheduling and event information',
         },
         {
           id: 3,
           name: 'INFORMAL Magazine',
-          description: 'Magazine that combines hip-hop and streetwear throughout several ages'
+          description: 'Magazine that combines hip-hop and streetwear throughout several ages',
         }
       ]
+    }
+  },
+  computed: {
+    
+  },
+  methods: {
+    nextProject: function () {
+        this.currentId++;
+        if (this.currentId > this.projects.length) {
+          this.currentId = 1;
+        }
+    },
+    prevProject: function () {
+      this.currentId--;
+      if (this.currentId < 1) {
+        this.currentId = this.projects.length
+      }
     }
   }
 }
@@ -41,18 +60,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+h2 {
+  text-align: center;
+  margin: 40px 0 auto;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+p {
+  text-align: center;
+  width: 50%;
+  margin: auto;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.project {
+  text-align: center;
 }
 </style>
