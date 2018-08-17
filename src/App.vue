@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Navigation from './views/Navigation.vue'
+import Navigation from '@/components/Navigation.vue'
 export default {
   components: {
     'app-navigation': Navigation
@@ -14,7 +14,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
