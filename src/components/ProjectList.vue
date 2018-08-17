@@ -1,7 +1,7 @@
 <template>
   <div class="project-list">
     <h1>{{ msg }}</h1>
-    <div v-if="project.id === currentId" class="project" v-for="project in projects" :key="project.id">
+    <div class="project" v-for="project in projects" :key="project.id" v-if="project.id === projectNumber">
       <h2>{{ project.name }}</h2>
       <p>{{ project.description }}</p>
     </div>
@@ -14,45 +14,16 @@
 export default {
   name: 'ProjectList',
   props: {
-    msg: String
-  },
-  data: function () {
-    return {
-      currentId: 1,
-      projects: [
-        {
-          id: 1,
-          name: 'Slack Rebrand',
-          description: 'Rebrand of the popular team collaboration app',
-        },
-        {
-          id: 2,
-          name: 'HYPEBEAST Awards',
-          description: 'Award show created with branding and a website mockup for scheduling and event information',
-        },
-        {
-          id: 3,
-          name: 'INFORMAL Magazine',
-          description: 'Magazine that combines hip-hop and streetwear throughout several ages',
-        }
-      ]
-    }
-  },
-  computed: {
-    
+    msg: String,
+    projects: Array,
+    projectNumber: Number
   },
   methods: {
     nextProject: function () {
-        this.currentId++;
-        if (this.currentId > this.projects.length) {
-          this.currentId = 1;
-        }
+      this.$emit('increaseId')
     },
     prevProject: function () {
-      this.currentId--;
-      if (this.currentId < 1) {
-        this.currentId = this.projects.length
-      }
+      this.$emit('decreaseId')
     }
   }
 }

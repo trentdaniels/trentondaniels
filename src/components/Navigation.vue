@@ -19,7 +19,9 @@ export default {
 
 <style lang="scss">
 #nav {
-  padding: 30px;
+  padding-top: 20px;
+  left: 0;
+  position: relative;
   a {
     font-weight: bold;
     color: rgb(187, 187, 187);
@@ -31,6 +33,8 @@ export default {
   li {
     white-space: nowrap;
     list-style-type: none;
+    transform: rotateZ(-90deg);
+    padding: 20px 0px;;
   }
 }
 </style>

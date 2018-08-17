@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <app-navigation></app-navigation>
-    <app-image-container></app-image-container>
-    <app-project-list msg="Creative Developer"></app-project-list>
+    <app-image-container :projects="projects" :projectNumber="currentId"></app-image-container>
+    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creative Developer" :increaseId="increaseCurrentId" :decreaseId="decreaseCurrentId"></app-project-list>
   </div>
 </template>
 
@@ -18,6 +18,42 @@ export default {
     'app-project-list': ProjectList,
     'app-navigation': Navigation,
     'app-image-container': ImageContainer
+  },
+  data: function () {
+    return {
+      projects: [
+        {
+          id: 1,
+          name: 'Slack Rebrand',
+          description: 'Rebrand of the popular team collaboration app'
+        },
+        {
+          id: 2,
+          name: 'HYPEBEAST Awards',
+          description: 'Award show created with branding and a website mockup for scheduling and event information'
+        },
+        {
+          id: 3,
+          name: 'INFORMAL Magazine',
+          description: 'Magazine that combines hip-hop and streetwear throughout several ages'
+        }
+      ],
+      currentId: 1
+    }
+  },
+  methods: {
+    increaseCurrentId: function () {
+      this.currentId++
+      if (this.currentId > this.projects.length) {
+        this.currentId = 1
+      }
+    },
+    decreaseCurrentId: function () {
+      this.currentId--
+      if (this.currentId < 1) {
+        this.currentId = this.projects.length
+      }
+    }
   }
 }
 </script>
@@ -48,7 +84,4 @@ export default {
     grid-row: 1 / span 1;
     width: 100%;
   }
-
-
-
 </style>
