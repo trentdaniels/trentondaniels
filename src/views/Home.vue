@@ -2,7 +2,7 @@
   <div class="home">
     <app-navigation></app-navigation>
     <app-image-container :projects="projects" :projectNumber="currentId"></app-image-container>
-    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creative Developer" :increaseId="increaseCurrentId" :decreaseId="decreaseCurrentId"></app-project-list>
+    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creative Developer" @increaseId="increaseCurrentId" @decreaseId="decreaseCurrentId"></app-project-list>
   </div>
 </template>
 
