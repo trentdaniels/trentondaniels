@@ -5,8 +5,8 @@
       <h2>{{ project.name }}</h2>
       <p>{{ project.description }}</p>
     </div>
-    <button @click="nextProject">Next Project</button>
-    <button @click="prevProject">Previous Project</button>
+    <button @click="nextProject">Next</button>
+    <button @click="prevProject">Previous</button>
   </div>
 </template>
 

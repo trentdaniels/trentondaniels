@@ -2,7 +2,7 @@
   <div class="home">
     <app-navigation></app-navigation>
     <app-home-image-container :projects="projects" :projectNumber="currentId"></app-home-image-container>
-    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creative Developer" @increaseId="increaseCurrentId" @decreaseId="decreaseCurrentId"></app-project-list>
+    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creativity." @increaseId="increaseCurrentId" @decreaseId="decreaseCurrentId"></app-project-list>
   </div>
 </template>
 
@@ -37,12 +37,14 @@ export default {
         {
           id: 3,
           name: 'INFORMAL Magazine',
-          description: 'Magazine that combines hip-hop and streetwear throughout several ages'
+          description: 'Magazine that combines hip-hop and streetwear throughout several ages',
+          image: require('@/assets/logo-black.png')
         },
         {
           id: 4,
           name: 'Take a Knee',
-          description: 'Website that informs about Colin Kapernick\'s stand against inequality'
+          description: 'Website that informs about Colin Kapernick\'s stand against inequality',
+          image: require('@/assets/logo.png')
         }
       ],
       currentId: 1
