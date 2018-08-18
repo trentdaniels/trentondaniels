@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <app-navigation></app-navigation>
-    <app-image-container :projects="projects" :projectNumber="currentId"></app-image-container>
+    <app-home-image-container :projects="projects" :projectNumber="currentId"></app-home-image-container>
     <app-project-list :projects="projects" :projectNumber="currentId" msg="Creative Developer" @increaseId="increaseCurrentId" @decreaseId="decreaseCurrentId"></app-project-list>
   </div>
 </template>
@@ -10,14 +10,14 @@
 // @ is an alias to /src
 import ProjectList from '@/components/ProjectList.vue'
 import Navigation from '@/components/Navigation.vue'
-import ImageContainer from '@/components/ImageContainer.vue'
+import HomeImageContainer from '@/components/HomeImageContainer.vue'
 
 export default {
   name: 'Home',
   components: {
     'app-project-list': ProjectList,
     'app-navigation': Navigation,
-    'app-image-container': ImageContainer
+    'app-home-image-container': HomeImageContainer
   },
   data: function () {
     return {

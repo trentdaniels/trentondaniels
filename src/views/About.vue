@@ -1,9 +1,9 @@
 <template>
   <div class="about">
     <app-navigation></app-navigation>
-    <app-image-container></app-image-container>
+    <app-image-container :altCaption="alt" :srcImage="src"></app-image-container>
     <app-about-me></app-about-me>
-    <h1>This is an about page</h1>
+    
 
   </div>
 </template>
@@ -19,6 +19,12 @@ export default {
     'app-navigation': Navigation,
     'app-image-container': ImageContainer,
     'app-about-me': AboutMe
+  },
+  data: function () {
+    return {
+      src: require('@/assets/logo.png'),
+      alt: "New description"
+    }
   }
 }
 </script>

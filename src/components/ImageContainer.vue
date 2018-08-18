@@ -1,16 +1,24 @@
 <template>
     <div class="img-container">
-      <img alt="Project Image" v-for="project in projects" :key="project.id" :src="project.image" v-if="projectNumber === project.id">
+      <img :alt="this.altCaption" :src="this.srcImage" />
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ImageContainer',
-    props: {
-        projects: Array,
-        projectNumber: Number,
+  name: 'ImageContainer',
+  props: {
+    srcImage: String,
+    altCaption: String
+  },
+  data: function () {
+    return {
+      
     }
+  },
+  methods: {
+    
+  }
 }
 </script>
 
