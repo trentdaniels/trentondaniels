@@ -59,7 +59,7 @@ export default {
 }
 
 .fade-up-leave-active {
-  transition: opacity .55s;
+  transition: opacity .5s;
   opacity: 0;
 }
 
