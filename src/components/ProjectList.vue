@@ -1,7 +1,7 @@
 <template>
   <div class="project-list">
     <h1>{{ msg }}</h1>
-    <transition name="fade-up" mode="out-in">
+    <transition name="fade-slide" mode="out-in">
       <div class="project" v-for="project in projects" :key="project.id" v-if="project.id === projectNumber">
         <h2>{{ project.name }}</h2>
         <p>{{ project.description }}</p>
@@ -46,26 +46,29 @@ export default {
   margin: auto;
   }
 }
-.fade-up-enter {
+.fade-slide-enter {
   opacity: 0;
 }
 
-.fade-up-enter-active {
-  transition: opacity .5s;
+.fade-slide-enter-active {
+  animation: fade-slide-in .65s ease normal;
 }
 
-.fade-up-leave {
+.fade-slide-leave {
   opacity: 1;
 }
 
-.fade-up-leave-active {
-  transition: opacity .5s;
-  opacity: 0;
+.fade-slide-leave-active {
+  animation: fade-slide-in .65s ease-in-out reverse;
 }
 
-@keyframes fade-up {
-  0% {transfrom: translateY(0px); opacity: 1}
-  100% {transform: translateY(10px); opacity: 0}
+@keyframes fade-slide-in {
+  from {transform: translateY(15px); opacity: 0}
+  to {transform: translateY(0px); opacity: 1}
+}
+@keyframes fade-slide-out {
+  from {transform: translateY(0); opacity: 1}
+  to {transform: translateY(15px); opacity: 0}
 }
 
 
