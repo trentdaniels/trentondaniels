@@ -26,6 +26,7 @@ export default {
     font-weight: bold;
     color: rgb(187, 187, 187);
     text-decoration: none;
+    padding: 15px 5px;
     &.router-link-exact-active {
       color: #000000;
     }
