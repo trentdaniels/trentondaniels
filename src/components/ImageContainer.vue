@@ -1,6 +1,6 @@
 <template>
     <div class="img-container">
-      <img alt="Trenton Daniels logo" :src="projectImage">
+      <img alt="Project Image" v-for="project in projects" :key="project.id" :src="project.image" v-if="projectNumber === project.id">
     </div>
 </template>
 
@@ -8,8 +8,8 @@
 export default {
     name: 'ImageContainer',
     props: {
-        projectImage: Array,
-        currentId: Number
+        projects: Array,
+        projectNumber: Number,
     }
 }
 </script>
