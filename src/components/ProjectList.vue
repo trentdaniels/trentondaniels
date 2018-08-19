@@ -7,8 +7,8 @@
         <p>{{ project.description }}</p>
       </div>
     </transition>
-    <button @click="nextProject">Next</button>
     <button @click="prevProject">Previous</button>
+    <button @click="nextProject">Next</button>
   </div>
 </template>
 
@@ -51,7 +51,7 @@ export default {
 }
 
 .fade-slide-enter-active {
-  animation: fade-slide-in .65s ease normal;
+  animation: fade-slide .65s ease normal;
 }
 
 .fade-slide-leave {
@@ -59,16 +59,12 @@ export default {
 }
 
 .fade-slide-leave-active {
-  animation: fade-slide-in .65s ease-in-out reverse;
+  animation: fade-slide .65s ease-in-out reverse;
 }
 
-@keyframes fade-slide-in {
+@keyframes fade-slide {
   from {transform: translateY(15px); opacity: 0}
   to {transform: translateY(0px); opacity: 1}
-}
-@keyframes fade-slide-out {
-  from {transform: translateY(0); opacity: 1}
-  to {transform: translateY(15px); opacity: 0}
 }
 
 

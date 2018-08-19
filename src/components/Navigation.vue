@@ -19,23 +19,26 @@ export default {
 
 <style lang="scss">
 #nav {
-  padding-top: 20px;
-  left: 0;
+  background-color: #000000;
+  transform: rotateZ(-90deg);  
   position: relative;
+  left: 0;
   a {
     font-weight: bold;
     color: rgb(187, 187, 187);
     text-decoration: none;
-    padding: 15px 5px;
     &.router-link-exact-active {
-      color: #000000;
+      color: #FFFFFF;
     }
   }
   li {
-    white-space: nowrap;
     list-style-type: none;
-    transform: rotateZ(-90deg);
-    padding: 20px 0px;;
+    display: inline-block;
+    padding: 30px 15px;
+  }
+  ul {
+    padding: 25px 0;
+    margin: 0;
   }
 }
 </style>

@@ -73,15 +73,17 @@ export default {
   }
   .home {
     display: grid;
-    grid-template: 100vh / 10vw 45vw 45vw;
+    grid-template: 100vh / 10% 45% 45%;
     width: 100vw;
     height: 100vh;
-    align-items:center;
+    align-items: center;
+    justify-items: center;
   }
   #nav {
-    width: 100%;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    width: 100vh;
+    align-self: center;
   }
   .img-container {
     grid-column: 2 / span 1;
