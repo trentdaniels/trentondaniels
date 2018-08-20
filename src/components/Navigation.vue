@@ -20,9 +20,22 @@ export default {
 <style lang="scss">
 #nav {
   background-color: #000000;
-  transform: rotateZ(-90deg);  
-  position: relative;
-  left: 0;
+  width: 100%;
+  height: 100%;
+  li {
+    list-style-type: none;
+    padding: 10px 15px;
+  }
+  ul {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-content: center;
+    justify-content: center;
+    
+  }
   a {
     font-weight: bold;
     color: rgb(187, 187, 187);
@@ -30,15 +43,6 @@ export default {
     &.router-link-exact-active {
       color: #FFFFFF;
     }
-  }
-  li {
-    list-style-type: none;
-    display: inline-block;
-    padding: 30px 15px;
-  }
-  ul {
-    padding: 25px 0;
-    margin: 0;
-  }
+  }  
 }
 </style>

@@ -68,22 +68,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  img {
-    width: 100%;
-  }
   .home {
     display: grid;
     grid-template: 100vh / 10% 45% 45%;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
     align-items: center;
-    justify-items: center;
   }
   #nav {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-    width: 100vh;
-    align-self: center;
   }
   .img-container {
     grid-column: 2 / span 1;
