@@ -5,10 +5,10 @@
       <div class="project" v-for="project in projects" :key="project.id" v-if="project.id === projectNumber">
         <h2>{{ project.name }}</h2>
         <p>{{ project.description }}</p>
-      </div>
+      </div>   
     </transition>
-    <button @click="prevProject">Previous</button>
-    <button @click="nextProject">Next</button>
+    <slot></slot> 
+    
   </div>
 </template>
 
@@ -19,14 +19,6 @@ export default {
     msg: String,
     projects: Array,
     projectNumber: Number
-  },
-  methods: {
-    nextProject: function () {
-      this.$emit('increaseId')
-    },
-    prevProject: function () {
-      this.$emit('decreaseId')
-    }
   }
 }
 </script>

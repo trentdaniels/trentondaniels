@@ -34,6 +34,7 @@ export default {
     padding: 0;
     align-content: center;
     justify-content: center;
+    margin: 0;
     
   }
   a {

@@ -1,7 +1,6 @@
 <template>
     <div class="work">
         <app-navigation></app-navigation>
-        <h1>This is the projects page</h1>
     </div>
     
 </template>
@@ -12,6 +11,11 @@ export default {
     name: 'Work',
     components: {
         'app-navigation': Navigation
+    },
+    data: function() {
+      return {
+        
+      }
     }
 }
 </script>
@@ -19,24 +23,15 @@ export default {
 <style lang="scss" scoped>
   .work {
     display: grid;
-    grid-template: 100vh / 10vw 45vw 45vw;
     width: 100vw;
     height: 100vh;
     align-items:center;
-  }
-  #nav {
+    grid-template: repeat(4, 1fr) / 10vw repeat(4, 1fr);
+    #nav {
     width: 100%;
     grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
-  }
-  .img-container {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-    width: 100%;
-  }
-  .form{
-    grid-column: 3 / span 1;
-    grid-row: 1 / span 1;
-  }
+    grid-row: 1 / span 4;
+    }
+  } 
 </style>
 

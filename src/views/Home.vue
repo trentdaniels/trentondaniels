@@ -2,7 +2,13 @@
   <div class="home">
     <app-navigation></app-navigation>
     <app-home-image-container :projects="projects" :projectNumber="currentId"></app-home-image-container>
-    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creativity." @increaseId="increaseCurrentId" @decreaseId="decreaseCurrentId"></app-project-list>
+    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creativity.">
+      <div class="button-group">
+        <button @click="decreaseCurrentId">Previous</button>
+        <button @click="increaseCurrentId">Next</button>
+      </div>
+    </app-project-list>
+    
   </div>
 </template>
 
@@ -71,21 +77,23 @@ export default {
   .home {
     display: grid;
     grid-template: 100vh / 10% 45% 45%;
-    width: 100%;
+    width: 100vw;
     align-items: center;
-  }
-  #nav {
+    justify-items: center;
+    #nav {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-  }
-  .img-container {
+    }
+    .img-container {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
     width: 100%;
-  }
-  .project-list {
+    }
+    .project-list {
     grid-column: 3 / span 1;
     grid-row: 1 / span 1;
     width: 100%;
+    }
   }
+  
 </style>

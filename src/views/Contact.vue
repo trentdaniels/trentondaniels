@@ -1,7 +1,6 @@
 <template>
     <div class="contact">
         <app-navigation></app-navigation>
-        <app-image-continer :srcImage="src" :altCaption="alt"></app-image-continer>
         <app-form></app-form>
     </div>
     
@@ -31,7 +30,7 @@ export default {
 <style lang="scss" scoped>
   .contact {
     display: grid;
-    grid-template: 100vh / 10vw 45vw 45vw;
+    grid-template: 100vh / 10vw 90vw;
     width: 100vw;
     height: 100vh;
     align-items:center;
@@ -41,13 +40,8 @@ export default {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
   }
-  .img-container {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-    width: 100%;
-  }
   .form{
-    grid-column: 3 / span 1;
+    grid-column: 2 / span 1;
     grid-row: 1 / span 1;
   }
 </style>

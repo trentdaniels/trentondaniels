@@ -2,27 +2,31 @@
     <div class="form">
         <h1>Let's link.</h1>
         <form id="form">
-            <div>
-                <label for="firstName">First Name: </label>
+            <div v-if="currentInput === 1">
+                <h3>First Name:</h3>
                 <input type="text" id="firstName" v-model="userData.firstName" placeholder="ex: John Doe"/>
                 <p>{{ userData.firstName }}</p>
+                <button @click="nextInput()">Next</button>
             </div>
-            <div>
-                <label for="lastName">Last Name: </label>
+            <div v-if="currentInput === 2">
+                <h3>Last Name:</h3>
                 <input type="text" id="lastName" v-model="userData.lastName" placeholder="ex: John Doe"/>
                 <p>{{ userData.lastName }}</p>
+                <button @click="nextInput()">Next</button>
             </div>
-            <div>
-                <label for="email">Email: </label>
+            <div v-if="currentInput === 3">
+                <h3>Email:</h3>
                 <input type="email" id="email" v-model="userData.email" placeholder="email@email.com"/>
                 <p>{{ userData.email }}</p>
+                <button @click="nextInput()">Next</button>
             </div>
-            <div>
-                <label for="description">Message: </label>
+            <div v-if="currentInput === 4">
+                <h3>Message</h3>
                 <textarea id="description" v-model="userData.description" placeholder="I want to work together.."></textarea>
+                <button @click="nextInput()">Next</button>
             </div>
-            <div>
-                <button type="submit">Link Up</button>
+            <div v-if="currentInput === 5">
+                <button type="submit" @click.prevent="alertSubmitted()">Link Up</button>
             </div>
         </form>
     </div>
@@ -33,7 +37,7 @@ export default {
     name: 'Form',
     data: function () {
         return {
-            
+            currentInput: 1,
             userData: {
                 firstName: '',
                 lastName: '',
@@ -42,13 +46,43 @@ export default {
             }
         }
     },
-    
+    methods: {
+        nextInput() {
+            this.currentInput++;
+            if (this.currentInput > 5) {
+                this.currentInput = 1;
+            }
+        },
+        alertSubmitted() {
+            alert("Submitted!");
+            this.nextInput();
+        }
+
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-textarea {
-    white-space: pre;
+.contact {
+    textarea {
+        white-space: pre;
+    }
+    h1 {
+        font-size: 10rem;
+        text-transform: uppercase;
+    }
+    input {
+        width: 40%;
+        border-color: black;
+        padding: 10px;
+    }
+    div {
+        text-align: center;
+    }
+    button {
+
+    }
 }
+
 </style>
 
