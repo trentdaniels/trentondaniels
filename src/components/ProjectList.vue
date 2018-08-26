@@ -2,7 +2,7 @@
   <div class="project-list">
     <h1>{{ msg }}</h1>
     <transition name="fade-slide" mode="out-in" appear>
-      <div class="project" v-for="project in projects" :key="project.id" v-if="project.id === $store.state.currentProject">
+      <div class="project" v-for="project in projects" :key="project.id" v-if="project.id === currentProjects">
         <h2><span>{{ project.id }}.</span> {{ project.name }}</h2>
         <p>{{ project.description }}</p>
 

@@ -47,6 +47,9 @@ export default new Vuex.Store({
       else if (state.currentProject > state.projects.length) {
         state.currentProject = 1
       }
+    },
+    newProject() {
+      
     }
   },
   actions: {
