@@ -1,9 +1,11 @@
 <template>
     <div class="contact">
         <app-navigation></app-navigation>
-        <app-form></app-form>
+        <app-form>
+            <h1>Let's Link.</h1>
+        </app-form>
     </div>
-    
+
 </template>
 
 <script>
@@ -12,18 +14,18 @@ import ImageContainer from '@/components/ImageContainer.vue'
 import Form from '@/components/Form.vue'
 
 export default {
-    name: 'Contact',
-    components: {
-        'app-navigation': Navigation,
-        'app-image-continer': ImageContainer,
-        'app-form': Form
-    },
-    data: function () {
-        return {
-            src: require('@/assets/logo-black.png'),
-            alt: 'Contact image description'
-        }
+  name: 'Contact',
+  components: {
+    'app-navigation': Navigation,
+    'app-image-continer': ImageContainer,
+    'app-form': Form
+  },
+  data: function () {
+    return {
+      src: require('@/assets/logo-black.png'),
+      alt: 'Contact image description'
     }
+  }
 }
 </script>
 
@@ -34,14 +36,19 @@ export default {
     width: 100vw;
     height: 100vh;
     align-items:center;
-  }
-  #nav {
+    #nav {
     width: 100%;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    }
+    .form {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+    }
+    h1 {
+        font-size: 10rem;
+        text-transform: uppercase;
+    }
   }
-  .form{
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-  }
+
 </style>

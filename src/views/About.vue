@@ -3,7 +3,6 @@
     <app-navigation></app-navigation>
     <app-image-container :altCaption="alt" :srcImage="src"></app-image-container>
     <app-about-me></app-about-me>
-    
 
   </div>
 </template>
@@ -23,7 +22,7 @@ export default {
   data: function () {
     return {
       src: require('@/assets/logo.png'),
-      alt: "New description"
+      alt: 'New description'
     }
   }
 }

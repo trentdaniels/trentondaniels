@@ -1,6 +1,6 @@
 <template>
     <div class="form">
-        <h1>Let's link.</h1>
+        <slot></slot>
         <form id="form">
             <div v-if="currentInput === 1">
                 <h3>First Name:</h3>
@@ -21,7 +21,7 @@
                 <button @click="nextInput()">Next</button>
             </div>
             <div v-if="currentInput === 4">
-                <h3>Message</h3>
+                <h3>Message:</h3>
                 <textarea id="description" v-model="userData.description" placeholder="I want to work together.."></textarea>
                 <button @click="nextInput()">Next</button>
             </div>
@@ -34,31 +34,31 @@
 
 <script>
 export default {
-    name: 'Form',
-    data: function () {
-        return {
-            currentInput: 1,
-            userData: {
-                firstName: '',
-                lastName: '',
-                email: '',
-                description: ''
-            }
-        }
-    },
-    methods: {
-        nextInput() {
-            this.currentInput++;
-            if (this.currentInput > 5) {
-                this.currentInput = 1;
-            }
-        },
-        alertSubmitted() {
-            alert("Submitted!");
-            this.nextInput();
-        }
-
+  name: 'Form',
+  data: function () {
+    return {
+      currentInput: 1,
+      userData: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        description: ''
+      }
     }
+  },
+  methods: {
+    nextInput () {
+      this.currentInput++
+      if (this.currentInput > 5) {
+        this.currentInput = 1
+      }
+    },
+    alertSubmitted () {
+      alert('Submitted!')
+      this.nextInput()
+    }
+
+  }
 }
 </script>
 
@@ -66,23 +66,23 @@ export default {
 .contact {
     textarea {
         white-space: pre;
-    }
-    h1 {
-        font-size: 10rem;
-        text-transform: uppercase;
-    }
-    input {
+        display: block;
         width: 40%;
+        padding: 10px;
+        border-color: black;
+
+    }
+
+    input {
         border-color: black;
         padding: 10px;
     }
     div {
-        text-align: center;
-    }
-    button {
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
     }
 }
 
 </style>
-

@@ -2,21 +2,21 @@
     <div class="work">
         <app-navigation></app-navigation>
     </div>
-    
+
 </template>
 
 <script>
 import Navigation from '@/components/Navigation.vue'
 export default {
-    name: 'Work',
-    components: {
-        'app-navigation': Navigation
-    },
-    data: function() {
-      return {
-        
-      }
+  name: 'Work',
+  components: {
+    'app-navigation': Navigation
+  },
+  data: function () {
+    return {
+
     }
+  }
 }
 </script>
 
@@ -32,6 +32,5 @@ export default {
     grid-column: 1 / span 1;
     grid-row: 1 / span 4;
     }
-  } 
+  }
 </style>
-

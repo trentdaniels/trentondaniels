@@ -1,14 +1,15 @@
 <template>
   <div class="project-list">
     <h1>{{ msg }}</h1>
-    <transition name="fade-slide" mode="out-in">
+    <transition name="fade-slide" mode="out-in" appear>
       <div class="project" v-for="project in projects" :key="project.id" v-if="project.id === projectNumber">
-        <h2>{{ project.name }}</h2>
+        <h2><span>{{ project.id }}.</span> {{ project.name }}</h2>
         <p>{{ project.description }}</p>
-      </div>   
+
+      </div>
     </transition>
-    <slot></slot> 
-    
+    <slot></slot>
+
   </div>
 </template>
 
@@ -58,6 +59,5 @@ export default {
   from {transform: translateY(15px); opacity: 0}
   to {transform: translateY(0px); opacity: 1}
 }
-
 
 </style>

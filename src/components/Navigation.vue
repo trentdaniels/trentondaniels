@@ -5,17 +5,16 @@
         <li><router-link to="/about">About</router-link></li>
         <li><router-link to="/work">Work</router-link></li>
         <li><router-link to="/contact">Contact</router-link></li>
-      </ul>       
+      </ul>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Navigation'
+  name: 'Navigation'
 
 }
 </script>
-
 
 <style lang="scss">
 #nav {
@@ -35,7 +34,7 @@ export default {
     align-content: center;
     justify-content: center;
     margin: 0;
-    
+
   }
   a {
     font-weight: bold;
@@ -44,6 +43,6 @@ export default {
     &.router-link-exact-active {
       color: #FFFFFF;
     }
-  }  
+  }
 }
 </style>

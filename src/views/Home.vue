@@ -1,14 +1,14 @@
 <template>
-  <div class="home">
+  <div class="home" @scroll="handleScroll()">
     <app-navigation></app-navigation>
     <app-home-image-container :projects="projects" :projectNumber="currentId"></app-home-image-container>
-    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creativity.">
+    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creativity." >
       <div class="button-group">
-        <button @click="decreaseCurrentId">Previous</button>
-        <button @click="increaseCurrentId">Next</button>
+        <button @click="decreaseCurrentId()">Previous Project</button>
+        <button @click="increaseCurrentId()">Next Project</button>
       </div>
     </app-project-list>
-    
+
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     'app-navigation': Navigation,
     'app-home-image-container': HomeImageContainer
   },
-  data: function () {
+  data () {
     return {
       projects: [
         {
@@ -53,22 +53,50 @@ export default {
           image: require('@/assets/logo.png')
         }
       ],
-      currentId: 1
+      currentId: 1,
+      scrollHeightY: window.scrollY
     }
   },
+  computed: {
+    scrollHeight () {
+      return window.scrollY
+    }
+  },
+
   methods: {
-    increaseCurrentId: function () {
+    increaseCurrentId () {
       this.currentId++
       if (this.currentId > this.projects.length) {
         this.currentId = 1
       }
     },
-    decreaseCurrentId: function () {
+    decreaseCurrentId () {
       this.currentId--
       if (this.currentId < 1) {
         this.currentId = this.projects.length
       }
+    },
+    handleScroll () {
+
     }
+  },
+  beforeMount () {
+    debugger
+    window.addEventListener('scroll', () => {
+      let originalScrollHeight = this.scrollHeightY
+      if (this.scrollHeight < originalScrollHeight) {
+        console.log('scrolling...')
+        this.increaseCurrentId()
+      } else if (this.scrollHeight > originalScrollHeight) {
+        this.decreaseCurrentId()
+      } else {
+        console.log('scroll not working')
+      }
+      this.scrollHeightY = originalScrollHeight
+    })
+  },
+  beforeDestroy () {
+
   }
 }
 </script>
@@ -76,10 +104,11 @@ export default {
 <style lang="scss" scoped>
   .home {
     display: grid;
-    grid-template: 100vh / 10% 45% 45%;
+    grid-template: 102vh / 10% 45% 45%;
     width: 100vw;
     align-items: center;
     justify-items: center;
+    overflow-y: auto;
     #nav {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
@@ -93,7 +122,27 @@ export default {
     grid-column: 3 / span 1;
     grid-row: 1 / span 1;
     width: 100%;
+    overflow-y: auto;
+    .button-group {
+      margin: 15px;
+      button {
+      color: black;
+      padding: .8rem;
+      border-color: black;
+      font-size: .7rem;
+      outline: none;
+      background-color: white;
+      border-radius: 1rem;
+      transition: 0.4s ease;
+      &:hover {
+        color: white;
+        border-color: black;
+        background-color: black;
+      }
+    }
+
+    }
     }
   }
-  
+
 </style>

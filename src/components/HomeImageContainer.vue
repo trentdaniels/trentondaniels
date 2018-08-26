@@ -8,11 +8,11 @@
 
 <script>
 export default {
-    name: 'HomeImageContainer',
-    props: {
-        projects: Array,
-        projectNumber: Number,
-    }
+  name: 'HomeImageContainer',
+  props: {
+    projects: Array,
+    projectNumber: Number
+  }
 }
 </script>
 
