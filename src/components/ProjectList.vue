@@ -2,7 +2,7 @@
   <div class="project-list">
     <h1>{{ msg }}</h1>
     <transition name="fade-slide" mode="out-in" appear>
-      <div class="project" v-for="project in projects" :key="project.id" v-if="project.id === projectNumber">
+      <div class="project" v-for="project in projects" :key="project.id" v-if="project.id === $store.state.currentProject">
         <h2><span>{{ project.id }}.</span> {{ project.name }}</h2>
         <p>{{ project.description }}</p>
 
@@ -18,8 +18,14 @@ export default {
   name: 'ProjectList',
   props: {
     msg: String,
-    projects: Array,
-    projectNumber: Number
+  },
+  computed: {
+    currentProject() {
+      return this.$store.state.currentProject;
+    },
+    projects() {
+      return this.$store.state.projects;
+    }
   }
 }
 </script>

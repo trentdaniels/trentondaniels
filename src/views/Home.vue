@@ -1,8 +1,8 @@
 <template>
   <div class="home" @scroll="handleScroll()">
     <app-navigation></app-navigation>
-    <app-home-image-container :projects="projects" :projectNumber="currentId"></app-home-image-container>
-    <app-project-list :projects="projects" :projectNumber="currentId" msg="Creativity." >
+    <app-home-image-container></app-home-image-container>
+    <app-project-list msg="Creativity." >
       <div class="button-group">
         <button @click="decreaseCurrentId(1)">Previous Project</button>
         <button @click="increaseCurrentId(1)">Next Project</button>
@@ -29,33 +29,6 @@ export default {
   },
   data () {
     return {
-      projects: [
-        {
-          id: 1,
-          name: 'Slack Rebrand',
-          description: 'Rebrand of the popular team collaboration app',
-          image: require('@/assets/logo-black.png')
-        },
-        {
-          id: 2,
-          name: 'HYPEBEAST Awards',
-          description: 'Award show created with branding and a website mockup for scheduling and event information',
-          image: require('@/assets/logo.png')
-        },
-        {
-          id: 3,
-          name: 'INFORMAL Magazine',
-          description: 'Magazine that combines hip-hop and streetwear throughout several ages',
-          image: require('@/assets/logo-black.png')
-        },
-        {
-          id: 4,
-          name: 'Take a Knee',
-          description: 'Website that informs about Colin Kapernick\'s stand against inequality',
-          image: require('@/assets/logo.png')
-        }
-      ],
-      currentId: 1,
       scrollHeightY: window.scrollY
     }
   },
@@ -65,6 +38,9 @@ export default {
     },
     currentProject() {
       return this.$store.state.currentProject;
+    },
+    projects() {
+      return this.$store.state.projects;
     }
   },
 
@@ -76,7 +52,7 @@ export default {
     increaseCurrentId (amount) {
       this.$store.dispatch('incrementCurrentProject', amount)
     },
-    decreaseCurrentId () {
+    decreaseCurrentId (amount) {
       this.$store.dispatch('decrementCurrentProject', amount)
     },
 

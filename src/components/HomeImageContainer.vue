@@ -1,7 +1,7 @@
 <template>
     <div class="img-container">
         <transition name="fade-slide" mode="out-in">
-            <img alt="Project Image" v-for="project in projects" :key="project.id" :src="project.image" v-if="projectNumber === project.id">
+            <img alt="Project Image" v-for="project in projects" :key="project.id" :src="project.image" v-if="currentProject === project.id">
         </transition>
     </div>
 </template>
@@ -9,9 +9,13 @@
 <script>
 export default {
   name: 'HomeImageContainer',
-  props: {
-    projects: Array,
-    projectNumber: Number
+  computed: {
+    currentProject() {
+      return this.$store.state.currentProject;
+    },
+    projects() {
+      return this.$store.state.projects;
+    }
   }
 }
 </script>
