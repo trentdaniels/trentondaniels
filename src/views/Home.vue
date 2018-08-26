@@ -4,8 +4,9 @@
     <app-home-image-container :projects="projects" :projectNumber="currentId"></app-home-image-container>
     <app-project-list :projects="projects" :projectNumber="currentId" msg="Creativity." >
       <div class="button-group">
-        <button @click="decreaseCurrentId()">Previous Project</button>
-        <button @click="increaseCurrentId()">Next Project</button>
+        <button @click="decreaseCurrentId(1)">Previous Project</button>
+        <button @click="increaseCurrentId(1)">Next Project</button>
+        <p>{{ currentProject }}</p>
       </div>
     </app-project-list>
 
@@ -17,6 +18,7 @@
 import ProjectList from '@/components/ProjectList.vue'
 import Navigation from '@/components/Navigation.vue'
 import HomeImageContainer from '@/components/HomeImageContainer.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Home',
@@ -60,28 +62,29 @@ export default {
   computed: {
     scrollHeight () {
       return window.scrollY
+    },
+    currentProject() {
+      return this.$store.state.currentProject;
     }
   },
 
   methods: {
-    increaseCurrentId () {
-      this.currentId++
-      if (this.currentId > this.projects.length) {
-        this.currentId = 1
-      }
+    ...mapActions([
+      'incrementCurrentProject',
+      'decrementCurrentProject'
+    ]),
+    increaseCurrentId (amount) {
+      this.$store.dispatch('incrementCurrentProject', amount)
     },
     decreaseCurrentId () {
-      this.currentId--
-      if (this.currentId < 1) {
-        this.currentId = this.projects.length
-      }
+      this.$store.dispatch('decrementCurrentProject', amount)
     },
+
     handleScroll () {
 
     }
   },
   beforeMount () {
-    debugger
     window.addEventListener('scroll', () => {
       let originalScrollHeight = this.scrollHeightY
       if (this.scrollHeight < originalScrollHeight) {
