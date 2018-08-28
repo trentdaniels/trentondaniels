@@ -1,5 +1,5 @@
 <template>
-  <div class="home" @scroll="handleScroll()">
+  <div class="home">
     <app-navigation></app-navigation>
     <app-home-image-container></app-home-image-container>
     <app-project-list msg="Creativity." >
@@ -29,18 +29,15 @@ export default {
   },
   data () {
     return {
-      scrollHeightY: window.scrollY
+      originalHeight: 0
     }
   },
   computed: {
-    scrollHeight () {
-      return window.scrollY
+    currentProject () {
+      return this.$store.state.currentProject
     },
-    currentProject() {
-      return this.$store.state.currentProject;
-    },
-    projects() {
-      return this.$store.state.projects;
+    projects () {
+      return this.$store.state.projects
     }
   },
 
@@ -57,25 +54,44 @@ export default {
     },
 
     handleScroll () {
-
+      let currentHeight = window.scrollY
+      if (currentHeight > this.originalHeight) {
+        console.log('scrolling up one...')
+        window.scrollTo(0, this.originalHeight + 1)
+        this.increaseCurrentId(1)
+      } else if (currentHeight < this.originalHeight) {
+        console.log('scrolling down one...')
+        window.scrollTo(0, this.originalHeight - 1)
+        this.decreaseCurrentId(1)
+      } else {
+        console.log('did not scroll')
+      }
+      this.originalHeight = currentHeight
+    },
+    debounce (functionToCall, wait, immediate) {
+      let timeout
+      return function () {
+        let args = arguments
+        let delayFunction = function () {
+          timeout = null
+          if (!immediate) {
+            functionToCall.apply(this, args)
+          }
+        }
+        let callNow = immediate && !timeout
+        clearTimeout(timeout)
+        timeout = setTimeout(delayFunction, wait)
+        if (callNow) {
+          functionToCall.apply(this, args)
+        }
+      }
     }
   },
   beforeMount () {
-    window.addEventListener('scroll', () => {
-      let originalScrollHeight = this.scrollHeightY
-      if (this.scrollHeight < originalScrollHeight) {
-        console.log('scrolling...')
-        this.increaseCurrentId()
-      } else if (this.scrollHeight > originalScrollHeight) {
-        this.decreaseCurrentId()
-      } else {
-        console.log('scroll not working')
-      }
-      this.scrollHeightY = originalScrollHeight
-    })
+    window.addEventListener('scroll', this.debounce(this.handleScroll, 250, true))
   },
   beforeDestroy () {
-
+    window.removeEventListener('scroll', this.debounce(this.handleScroll, 250, true))
   }
 }
 </script>
@@ -83,7 +99,7 @@ export default {
 <style lang="scss" scoped>
   .home {
     display: grid;
-    grid-template: 102vh / 10% 45% 45%;
+    grid-template: 101vh / 10% 45% 45%;
     width: 100vw;
     align-items: center;
     justify-items: center;
@@ -98,29 +114,29 @@ export default {
     width: 100%;
     }
     .project-list {
-    grid-column: 3 / span 1;
-    grid-row: 1 / span 1;
-    width: 100%;
-    overflow-y: auto;
-    .button-group {
-      margin: 15px;
-      button {
-      color: black;
-      padding: .8rem;
-      border-color: black;
-      font-size: .7rem;
-      outline: none;
-      background-color: white;
-      border-radius: 1rem;
-      transition: 0.4s ease;
-      &:hover {
-        color: white;
-        border-color: black;
-        background-color: black;
+      grid-column: 3 / span 1;
+      grid-row: 1 / span 1;
+      width: 100%;
+      overflow-y: auto;
+      .button-group {
+        margin: 15px;
+        width: 100%;
+        button {
+          color: black;
+          padding: .8rem;
+          border-color: black;
+          font-size: .7rem;
+          outline: none;
+          background-color: white;
+          border-radius: 1rem;
+          transition: 0.4s ease;
+          &:hover {
+            color: white;
+            border-color: black;
+            background-color: black;
+          }
+        }
       }
-    }
-
-    }
     }
   }
 

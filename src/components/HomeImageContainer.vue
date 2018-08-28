@@ -10,11 +10,11 @@
 export default {
   name: 'HomeImageContainer',
   computed: {
-    currentProject() {
-      return this.$store.state.currentProject;
+    currentProject () {
+      return this.$store.state.currentProject
     },
-    projects() {
-      return this.$store.state.projects;
+    projects () {
+      return this.$store.state.projects
     }
   }
 }

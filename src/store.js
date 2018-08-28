@@ -31,35 +31,34 @@ export default new Vuex.Store({
         description: 'Website that informs about Colin Kapernick\'s stand against inequality',
         image: require('@/assets/logo.png')
       }
-    ],
+    ]
   },
   mutations: {
-    incrementCurrentProject(state, payload) {
-      state.currentProject += payload;
+    incrementCurrentProject (state, payload) {
+      state.currentProject += payload
     },
-    decrementCurrentProject(state, payload) {
+    decrementCurrentProject (state, payload) {
       state.currentProject -= payload
     },
-    resetProject(state) {
-      if (state.currentProject < 1) { 
+    resetProject (state) {
+      if (state.currentProject < 1) {
         state.currentProject = state.projects.length
-      }
-      else if (state.currentProject > state.projects.length) {
+      } else if (state.currentProject > state.projects.length) {
         state.currentProject = 1
       }
     },
-    newProject() {
-      
+    newProject () {
+
     }
   },
   actions: {
-    incrementCurrentProject(context, payload) {
+    incrementCurrentProject (context, payload) {
       context.commit('incrementCurrentProject', payload)
       context.commit('resetProject')
     },
-    decrementCurrentProject(context, payload) {
+    decrementCurrentProject (context, payload) {
       context.commit('decrementCurrentProject', payload)
       context.commit('resetProject')
-    },    
+    }
   }
 })
