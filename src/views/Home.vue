@@ -57,11 +57,9 @@ export default {
       let currentHeight = window.scrollY
       if (currentHeight > this.originalHeight) {
         console.log('scrolling up one...')
-        window.scrollTo(0, this.originalHeight + 1)
         this.increaseCurrentId(1)
       } else if (currentHeight < this.originalHeight) {
-        console.log('scrolling down one...')
-        window.scrollTo(0, this.originalHeight - 1)
+        console.log('scrolling down one...') 
         this.decreaseCurrentId(1)
       } else {
         console.log('did not scroll')
@@ -88,10 +86,10 @@ export default {
     }
   },
   beforeMount () {
-    window.addEventListener('scroll', this.debounce(this.handleScroll, 250, true))
+    window.addEventListener('scroll', this.debounce(this.handleScroll, 350, true))
   },
   beforeDestroy () {
-    window.removeEventListener('scroll', this.debounce(this.handleScroll, 250, true))
+    window.removeEventListener('scroll', this.debounce(this.handleScroll, 350, true))
   }
 }
 </script>
