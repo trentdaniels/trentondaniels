@@ -34,11 +34,8 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    incrementCurrentProject (state, payload) {
+    changeCurrentProject (state, payload) {
       state.currentProject += payload
-    },
-    decrementCurrentProject (state, payload) {
-      state.currentProject -= payload
     },
     resetProject (state) {
       if (state.currentProject < 1) {
@@ -46,18 +43,11 @@ export default new Vuex.Store({
       } else if (state.currentProject > state.projects.length) {
         state.currentProject = 1
       }
-    },
-    newProject () {
-
     }
   },
   actions: {
-    incrementCurrentProject (context, payload) {
-      context.commit('incrementCurrentProject', payload)
-      context.commit('resetProject')
-    },
-    decrementCurrentProject (context, payload) {
-      context.commit('decrementCurrentProject', payload)
+    changeCurrentProject (context, payload) {
+      context.commit('changeCurrentProject', payload)
       context.commit('resetProject')
     }
   }

@@ -4,8 +4,8 @@
     <app-home-image-container></app-home-image-container>
     <app-project-list msg="Creativity." >
       <div class="button-group">
-        <button @click="decreaseCurrentId(1)">Previous Project</button>
-        <button @click="increaseCurrentId(1)">Next Project</button>
+        <button @click="changeCurrentId(-1)">Previous Project</button>
+        <button @click="changeCurrentId(1)">Next Project</button>
         <p>{{ currentProject }}</p>
       </div>
     </app-project-list>
@@ -43,15 +43,12 @@ export default {
 
   methods: {
     ...mapActions([
-      'incrementCurrentProject',
-      'decrementCurrentProject'
+      'changeCurrentProject',
     ]),
-    increaseCurrentId (amount) {
-      this.$store.dispatch('incrementCurrentProject', amount)
+    changeCurrentId (amount) {
+      this.$store.dispatch('changeCurrentProject', amount)
     },
-    decreaseCurrentId (amount) {
-      this.$store.dispatch('decrementCurrentProject', amount)
-    },
+  
 
     handleScroll () {
       let currentHeight = window.scrollY
