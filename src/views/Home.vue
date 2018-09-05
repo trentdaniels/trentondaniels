@@ -3,9 +3,10 @@
     <app-navigation></app-navigation>
     <h1 class="title">Creativity.</h1>
     <app-project-slider :currentProject="currentProject" @activeProjectChanged="updateActiveProject"></app-project-slider>
-    <p v-for="project in projects" :key="project.id" v-if="project.id === currentProject" class="description">
-      {{ project.description }}
-    </p>
+    <div v-for="project in projects" :key="project.id" v-if="project.id === currentProject" class="description">
+      <p>{{ project.description }}</p>      
+    </div>
+    <button @click="incrementProjects(currentProject)" class="circle">&#x021BB</button>
   </div>
 </template>
 
@@ -42,13 +43,18 @@ export default {
   methods: {
     ...mapActions([
       'changeCurrentProject',
-      'reorderProjects'
+      'reorderProjects',
+      'incrementProjects'
     ]),
     changeCurrentId (amount) {
       this.$store.dispatch('changeCurrentProject', amount)
     },
     updateActiveProject (project) {
       this.$store.dispatch('reorderProjects', project)
+    },
+    incrementProjects() {
+      let projectToIncrement = this.projects.find(project => project.id === this.currentProject)
+      this.$store.dispatch('incrementProjects', projectToIncrement)
     },
 
     handleScroll () {
@@ -105,6 +111,18 @@ export default {
       justify-self: center;
       font-size: 1.5rem;
       width: 80%;
+    }
+    .circle {
+      grid-area: 2 / 3 / span 1/ span 1;
+      align-self: end;
+      justify-self: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: black;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
     }
     #nav {
     grid-column: 1 / span 1;

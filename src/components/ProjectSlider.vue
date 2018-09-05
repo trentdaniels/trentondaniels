@@ -38,9 +38,6 @@ export default {
     ]),
     changeActiveProject (project) {
       this.$emit('activeProjectChanged', project)
-    },
-    getOrder(slide) {
-        return this.projects.find(project => project.id === slide.id).id
     }
   }
 
@@ -51,6 +48,7 @@ export default {
 #slider {
     height: 100%;
     display: flex;
+    justify-content: center;
     .slide-container {
         display: grid;
         align-self: flex-end;
