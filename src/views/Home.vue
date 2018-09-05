@@ -2,7 +2,10 @@
   <div class="home">
     <app-navigation></app-navigation>
     <h1 class="title">Creativity.</h1>
-    <app-project-slider :currentProject="currentProject" @currentNumberChanged="updateCurrentProject"></app-project-slider>
+    <app-project-slider :currentProject="currentProject" @activeProjectChanged="updateActiveProject"></app-project-slider>
+    <p v-for="project in projects" :key="project.id" v-if="project.id === currentProject" class="description">
+      {{ project.description }}
+    </p>
   </div>
 </template>
 
@@ -38,13 +41,14 @@ export default {
 
   methods: {
     ...mapActions([
-      'changeCurrentProject'
+      'changeCurrentProject',
+      'reorderProjects'
     ]),
     changeCurrentId (amount) {
       this.$store.dispatch('changeCurrentProject', amount)
     },
-    updateCurrentProject (projectIndex) {
-      this.$store.dispatch('updateCurrentNumber', projectIndex)
+    updateActiveProject (project) {
+      this.$store.dispatch('reorderProjects', project)
     },
 
     handleScroll () {
@@ -94,6 +98,13 @@ export default {
     grid-template: 10vh 75vh 15vh / 10vw 65vw 25vw;
     .title {
       grid-area: 1 / 3 / span 1 /  span 1;
+    }
+    .description {
+      grid-area: 2 / 3 / span 1 / span 1;
+      align-self: center;
+      justify-self: center;
+      font-size: 1.5rem;
+      width: 80%;
     }
     #nav {
     grid-column: 1 / span 1;

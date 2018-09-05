@@ -19,14 +19,14 @@ export default new Vuex.Store({
         name: 'HYPEBEAST Awards',
         description: 'Award show created with branding and a website mockup for scheduling and event information',
         image: require('@/assets/logo.png'),
-        currentProject: false
+        currentProject: null
       },
       {
         id: 3,
         name: 'INFORMAL Magazine',
         description: 'Magazine that combines hip-hop and streetwear throughout several ages',
         image: require('@/assets/logo-black.png'),
-        currentProject: false
+        currentProject: null
       },
       {
         id: 4,
@@ -51,14 +51,13 @@ export default new Vuex.Store({
     reorderProjects (state, payload) {
       if (payload !== 0) {
         let projects = state.projects
-        let selectedProject = projects.splice(payload, 1)
-        selectedProject[0].currentProject = true
-        let deletedProject = projects.splice(0, 1)
-        state.projects = selectedProject.concat(projects).concat(deletedProject)
+        projects.find(project => project.currentProject === true).currentProject = false
+        projects.find(project => project.id === payload.id).currentProject = true
+        state.projects = projects
       }
     },
     updateCurrentNumber (state, payload) {
-      state.currentProject = state.projects[payload].id
+      state.currentProject = payload.id
     }
   },
   actions: {
@@ -68,8 +67,6 @@ export default new Vuex.Store({
     },
     reorderProjects (context, payload) {
       context.commit('reorderProjects', payload)
-    },
-    updateCurrentNumber (context, payload) {
       context.commit('updateCurrentNumber', payload)
     }
   }
