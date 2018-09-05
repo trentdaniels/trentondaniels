@@ -16,6 +16,10 @@ export default {
     projects () {
       return this.$store.state.projects
     }
+  },
+  methods: {
+    slide () {
+    }
   }
 }
 </script>

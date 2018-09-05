@@ -1,15 +1,8 @@
 <template>
   <div class="home">
     <app-navigation></app-navigation>
-    <app-home-image-container></app-home-image-container>
-    <app-project-list msg="Creativity." >
-      <div class="button-group">
-        <button @click="changeCurrentId(-1)">Previous Project</button>
-        <button @click="changeCurrentId(1)">Next Project</button>
-        <p>{{ currentProject }}</p>
-      </div>
-    </app-project-list>
-
+    <h1 class="title">Creativity.</h1>
+    <app-project-slider :currentProject="currentProject" @currentNumberChanged="updateCurrentProject"></app-project-slider>
   </div>
 </template>
 
@@ -18,6 +11,7 @@
 import ProjectList from '@/components/ProjectList.vue'
 import Navigation from '@/components/Navigation.vue'
 import HomeImageContainer from '@/components/HomeImageContainer.vue'
+import ProjectSlider from '@/components/ProjectSlider.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -25,7 +19,8 @@ export default {
   components: {
     'app-project-list': ProjectList,
     'app-navigation': Navigation,
-    'app-home-image-container': HomeImageContainer
+    'app-home-image-container': HomeImageContainer,
+    'app-project-slider': ProjectSlider
   },
   data () {
     return {
@@ -43,12 +38,14 @@ export default {
 
   methods: {
     ...mapActions([
-      'changeCurrentProject',
+      'changeCurrentProject'
     ]),
     changeCurrentId (amount) {
       this.$store.dispatch('changeCurrentProject', amount)
     },
-  
+    updateCurrentProject (projectIndex) {
+      this.$store.dispatch('updateCurrentNumber', projectIndex)
+    },
 
     handleScroll () {
       let currentHeight = window.scrollY
@@ -56,7 +53,7 @@ export default {
         console.log('scrolling up one...')
         this.increaseCurrentId(1)
       } else if (currentHeight < this.originalHeight) {
-        console.log('scrolling down one...') 
+        console.log('scrolling down one...')
         this.decreaseCurrentId(1)
       } else {
         console.log('did not scroll')
@@ -94,23 +91,21 @@ export default {
 <style lang="scss" scoped>
   .home {
     display: grid;
-    grid-template: 101vh / 10% 45% 45%;
-    width: 100vw;
-    align-items: center;
-    justify-items: center;
-    overflow-y: auto;
+    grid-template: 10vh 75vh 15vh / 10vw 65vw 25vw;
+    .title {
+      grid-area: 1 / 3 / span 1 /  span 1;
+    }
     #nav {
     grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
+    grid-row: 1 / span 3;
     }
-    .img-container {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-    width: 100%;
+    #slider {
+    grid-area: 1 / 2 / span 2 / span 1;
+    align-self: end;
     }
     .project-list {
       grid-column: 3 / span 1;
-      grid-row: 1 / span 1;
+      grid-row: 1 / span 3;
       width: 100%;
       overflow-y: auto;
       .button-group {

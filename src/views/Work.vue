@@ -19,7 +19,7 @@ import Navigation from '@/components/Navigation.vue'
 export default {
   name: 'Work',
   components: {
-    'app-navigation': Navigation,
+    'app-navigation': Navigation
   },
   data: function () {
     return {
@@ -27,26 +27,25 @@ export default {
     }
   },
   computed: {
-    projects() {
+    projects () {
       return this.$store.state.projects
-    },
+    }
   },
   methods: {
-    increase() {
-      this.currentProject++;
-      if(this.currentProject > this.projects.length) {
-        this.currentProject = 1;
+    increase () {
+      this.currentProject++
+      if (this.currentProject > this.projects.length) {
+        this.currentProject = 1
       }
     },
-    decrease() {
-      this.currentProject--;
-      if(this.currentProject < 1) {
+    decrease () {
+      this.currentProject--
+      if (this.currentProject < 1) {
         this.currentProject = this.projects.length
       }
     }
   }
-  
-  
+
 }
 </script>
 
