@@ -6,7 +6,7 @@
     <div v-for="project in projects" :key="project.id" v-if="project.id === currentProject" class="description">
       <p>{{ project.description }}</p>      
     </div>
-    <button @click="incrementProjects(currentProject)" class="circle">&#x021BB</button>
+    <button @click="incrementProjects(currentProject)" class="circle">&#x021BB;</button>
   </div>
 </template>
 
@@ -129,7 +129,7 @@ export default {
     grid-row: 1 / span 3;
     }
     #slider {
-    grid-area: 1 / 2 / span 2 / span 1;
+    grid-area: 2 / 2 / span 1 / span 1;
     align-self: end;
     }
     .project-list {

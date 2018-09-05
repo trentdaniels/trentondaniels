@@ -51,24 +51,25 @@ export default {
     justify-content: center;
     .slide-container {
         display: grid;
-        align-self: flex-end;
-        grid-template-areas: 1fr / 25% 25% 25% 25%;
-        grid-column-gap: 10px;
+        justify-self: center;
+        height: 100%;
+        width: 90%;
+        grid-template: 1fr / repeat(4, 1fr);
+        grid-column-gap: 15px;
         grid-auto-flow: column;
         align-items: end;
         align-content: end;
-        justify-content: center;
+        justify-content: space-around;
         justify-items: end;
         .project {
             grid-area: 1 / span 1;
             order: 0;
-            
         }
         .activeProject {
             order: 5;
             background: wheat;
-            height: 100%;
-            transition: all 1s ease-in-out;
+            height: 60%;
+            transition: height 1s ease-in-out 1s;
         }
     }
     @keyframes fadeRight {
@@ -77,7 +78,6 @@ export default {
     }
     .slide-leave-active, .slide-enter-active {
         transition: all 1s ease-in-out;
-        animation: fadeRight 1s;
     }
     .slide-leave-active {
         align-self: center;
