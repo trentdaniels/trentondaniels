@@ -21,3 +21,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.img-container {
+  width: 100%;
+  img {
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+}
+</style>

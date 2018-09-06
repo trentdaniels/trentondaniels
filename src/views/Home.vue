@@ -1,30 +1,39 @@
 <template>
   <div class="home">
     <app-navigation></app-navigation>
-    <h1 class="title">Creativity.</h1>
-    <app-project-slider :currentProject="currentProject" @activeProjectChanged="updateActiveProject"></app-project-slider>
-    <div v-for="project in projects" :key="project.id" v-if="project.id === currentProject" class="description">
-      <p>{{ project.description }}</p>      
+    <h1 id="msg" v-for="project in projects" :key="project.id" v-if="project.id === currentProject">{{ project.msg }}</h1>
+    <img src="@/assets/logo-black.png" id="logo" alt="Personal Logo">
+    <div class="heading">
+      <h1 id="main-heading">CREATIVE<br>DEVELOPER.</h1>
     </div>
-    <button @click="incrementProjects(currentProject)" class="circle">&#x021BB;</button>
+    <app-project-description :projects="projects" :currentProject="currentProject">
+      <button @click="incrementProjects(currentProject)" id="circleButton">&#x021BB;</button>
+    </app-project-description>
+    <app-home-image-container :projects="projects" :currentProject="currentProject" id="main-img"></app-home-image-container>
+    <app-secondary-image :projects="projects" :currentProject="currentProject" id="secondary-img"></app-secondary-image>
+
+    <app-social-media></app-social-media>
+    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import ProjectList from '@/components/ProjectList.vue'
+import SocialMedia from '@/components/SocialMedia.vue'
+import ProjectDescription from '@/components/ProjectDescription.vue'
 import Navigation from '@/components/Navigation.vue'
 import HomeImageContainer from '@/components/HomeImageContainer.vue'
-import ProjectSlider from '@/components/ProjectSlider.vue'
+import SecondaryImageContainer from '@/components/SecondaryImageContainer.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
-    'app-project-list': ProjectList,
     'app-navigation': Navigation,
     'app-home-image-container': HomeImageContainer,
-    'app-project-slider': ProjectSlider
+    'app-project-description': ProjectDescription,
+    'app-social-media': SocialMedia,
+    'app-secondary-image': SecondaryImageContainer
   },
   data () {
     return {
@@ -42,58 +51,12 @@ export default {
 
   methods: {
     ...mapActions([
-      'changeCurrentProject',
-      'reorderProjects',
       'incrementProjects'
     ]),
-    changeCurrentId (amount) {
-      this.$store.dispatch('changeCurrentProject', amount)
-    },
-    updateActiveProject (project) {
-      this.$store.dispatch('reorderProjects', project)
-    },
     incrementProjects() {
       let projectToIncrement = this.projects.find(project => project.id === this.currentProject)
       this.$store.dispatch('incrementProjects', projectToIncrement)
     },
-
-    handleScroll () {
-      let currentHeight = window.scrollY
-      if (currentHeight > this.originalHeight) {
-        console.log('scrolling up one...')
-        this.increaseCurrentId(1)
-      } else if (currentHeight < this.originalHeight) {
-        console.log('scrolling down one...')
-        this.decreaseCurrentId(1)
-      } else {
-        console.log('did not scroll')
-      }
-      this.originalHeight = currentHeight
-    },
-    debounce (functionToCall, wait, immediate) {
-      let timeout
-      return function () {
-        let args = arguments
-        let delayFunction = function () {
-          timeout = null
-          if (!immediate) {
-            functionToCall.apply(this, args)
-          }
-        }
-        let callNow = immediate && !timeout
-        clearTimeout(timeout)
-        timeout = setTimeout(delayFunction, wait)
-        if (callNow) {
-          functionToCall.apply(this, args)
-        }
-      }
-    }
-  },
-  beforeMount () {
-    window.addEventListener('scroll', this.debounce(this.handleScroll, 350, true))
-  },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.debounce(this.handleScroll, 350, true))
   }
 }
 </script>
@@ -101,62 +64,73 @@ export default {
 <style lang="scss" scoped>
   .home {
     display: grid;
-    grid-template: 10vh 75vh 15vh / 10vw 65vw 25vw;
-    .title {
-      grid-area: 1 / 3 / span 1 /  span 1;
+    grid-template: 10vh 30vh 20vh 30vh 10vh / 10vw repeat(2,20vw) repeat(2, 15vw) 20vw;
+    align-content: center;
+    .rotate {
+      animation: rotate 1s;
     }
-    .description {
-      grid-area: 2 / 3 / span 1 / span 1;
+    
+    #msg {
+      grid-area: 1 / 6 / span 1 /  span 1;
+      background-color: white;
+      width: 100%;
+      height: 100%;
       align-self: center;
-      justify-self: center;
-      font-size: 1.5rem;
-      width: 80%;
     }
-    .circle {
-      grid-area: 2 / 3 / span 1/ span 1;
-      align-self: end;
-      justify-self: center;
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-      background: black;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+    #logo {
+      grid-area: 2 / 6 / span 1 / span 1;
+      width: 80%;
+      align-self: center;
+      justify-self: start;
+      padding: 17px;
+      box-sizing: border-box;
+    }
+    .heading {
+      grid-area: 2 / 3 / span 1 / span 3;
+      z-index: 15;
+      width: 100%;
+      height: 100%;
+      #main-heading {
+        color: black;
+        text-align: left;
+        font-size: 5rem;
+        line-height: 5rem;
+      }
+    }
+    #social-media {
+      grid-area: 3 / 6 / span 3 / span 1;
+      justify-self: end;
+    }
+    #main-img {
+      grid-area: 1 / 2 / span 5 / span 2;
+    }
+    #secondary-img {
+      grid-area: 4 / 5 / span 2 / span 2;
+    }
+    #project-description {
+      grid-area: 4 / 3 / span 2 / span 1;
+      
+      #circleButton {
+        grid-area: 2 / 3 / span 1/ span 1;
+        align-self: end;
+        justify-self: center;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: black;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
     }
     #nav {
     grid-column: 1 / span 1;
-    grid-row: 1 / span 3;
-    }
-    #slider {
-    grid-area: 2 / 2 / span 1 / span 1;
-    align-self: end;
-    }
-    .project-list {
-      grid-column: 3 / span 1;
-      grid-row: 1 / span 3;
-      width: 100%;
-      overflow-y: auto;
-      .button-group {
-        margin: 15px;
-        width: 100%;
-        button {
-          color: black;
-          padding: .8rem;
-          border-color: black;
-          font-size: .7rem;
-          outline: none;
-          background-color: white;
-          border-radius: 1rem;
-          transition: 0.4s ease;
-          &:hover {
-            color: white;
-            border-color: black;
-            background-color: black;
-          }
-        }
-      }
-    }
+    grid-row: 1 / span 5;
+    }   
+  }
+  @keyframes rotate {
+      from { transform: rotateZ(0deg)}
+      to {transform: rotateZ(360deg)}
   }
 
 </style>

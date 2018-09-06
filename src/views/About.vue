@@ -21,8 +21,8 @@ export default {
   },
   data: function () {
     return {
-      src: require('@/assets/logo.png'),
-      alt: 'New description'
+      src: require('@/assets/nope.jpg'),
+      alt: 'A picture of yours truly'
     }
   }
 }

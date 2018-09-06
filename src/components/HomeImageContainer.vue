@@ -1,7 +1,9 @@
 <template>
     <div class="img-container">
         <transition name="fade-slide" mode="out-in">
-            <img alt="Project Image" v-for="project in projects" :key="project.id" :src="project.image" v-if="currentProject === project.id">
+          <div class="image-container">
+            <img alt="Project Image" v-for="project in projects" :key="project.id" :src="project.image" class="image" v-if="currentProject === project.id">
+          </div>  
         </transition>
     </div>
 </template>
@@ -9,17 +11,9 @@
 <script>
 export default {
   name: 'HomeImageContainer',
-  computed: {
-    currentProject () {
-      return this.$store.state.currentProject
-    },
-    projects () {
-      return this.$store.state.projects
-    }
-  },
-  methods: {
-    slide () {
-    }
+  props: {
+    currentProject: Number,
+    projects: Array
   }
 }
 </script>
@@ -44,5 +38,23 @@ export default {
 @keyframes fade-slide {
   from {transform: translateY(15px); opacity: 0}
   to {transform: translateY(0px); opacity: 1}
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+  .image-container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    .image {
+      display: inline-block;
+      object-fit: cover;
+      width: 100%;
+      min-height: 100%;
+    }
+  }
+  
 }
 </style>

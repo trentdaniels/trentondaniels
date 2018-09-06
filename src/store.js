@@ -10,30 +10,35 @@ export default new Vuex.Store({
       {
         id: 1,
         name: 'Slack Rebrand',
-        description: 'Rebrand of the popular team collaboration app',
-        image: require('@/assets/logo-black.png'),
-        currentProject: true
+        shortDescription: 'Rebrand of the popular team collaboration app',
+        image: require('@/assets/placeholder.jpg'),
+        secondaryImage: require('@/assets/desert.jpg'),
+        currentProject: true,
+        msg: 'Creative.'
       },
       {
         id: 2,
         name: 'HYPEBEAST Awards',
-        description: 'Award show created with branding and a website mockup for scheduling and event information',
-        image: require('@/assets/logo.png'),
-        currentProject: false
+        shortDescription: 'Award show created with branding and a website mockup for scheduling and event information',
+        image: require('@/assets/moon.jpg'),
+        currentProject: false,
+        msg: 'Intuitive.'
       },
       {
         id: 3,
         name: 'INFORMAL Magazine',
-        description: 'Magazine that combines hip-hop and streetwear throughout several ages',
+        shortDescription: 'Magazine that combines hip-hop and streetwear throughout several ages',
         image: require('@/assets/logo-black.png'),
-        currentProject: false
+        currentProject: false,
+        msg: 'Innovative.'
       },
       {
         id: 4,
         name: 'Take a Knee',
-        description: 'Website that informs about Colin Kapernick\'s stand against inequality',
+        shortDescription: 'Website that informs about Colin Kapernick\'s stand against inequality',
         image: require('@/assets/logo.png'),
-        currentProject: false
+        currentProject: false,
+        msg: 'Thoughtful.'
       }
     ]
   },
