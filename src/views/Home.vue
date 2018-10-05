@@ -56,6 +56,9 @@ export default {
     .intro {
       grid-area: 1 / 1 / span 1 / span 1;
       z-index: 10;
+      h1 {
+        color: white;
+      }
     }
     #projectToggle {
       grid-area: 1 / 1 / span 3 / span 1;

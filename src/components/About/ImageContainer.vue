@@ -20,13 +20,14 @@
 #imageContainer {
     overflow: hidden;
     text-align: center;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: black;
     img {
         margin: 0;
-        display: block;
-        width: auto;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
+        width: 70%;
         
     }
 }

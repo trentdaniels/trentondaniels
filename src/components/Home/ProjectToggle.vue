@@ -29,6 +29,7 @@
     flex-flow: column nowrap;
     align-content: center;
     justify-content: center;
+    background-color: black;
     ul {
         padding: 0;
         margin: 0;
@@ -40,6 +41,7 @@
         li {
             list-style-type: none;
             a {
+                color: white;
                 &:hover {
                     cursor: pointer;
                 }

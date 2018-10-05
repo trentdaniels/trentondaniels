@@ -28,7 +28,7 @@ export default new Vuex.Store({
       {
         name: 'Take a Knee',
         shortDescription: 'Website that informs about Colin Kapernick\'s stand against inequality',
-        image: require('@/assets/logo.png'),
+        image: require('@/assets/Logo.png'),
         msg: 'Thoughtful.'
       }
     ],

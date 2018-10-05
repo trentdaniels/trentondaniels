@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .about {
     display: grid;
-    grid-template: 15% 1fr 15% / 65% 35%;
+    grid-template: 15% 1fr 15% / 60% 40%;
     height: 100vh;
     width: 100vw;
     #navigation {

@@ -16,11 +16,15 @@
 #imageContainer {
     overflow: hidden;
     text-align: center;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
     img {
         margin: 0;
         display: block;
-        object-fit: cover;
-        object-position: center center;
+        width: 80%;
         
     }
 }
