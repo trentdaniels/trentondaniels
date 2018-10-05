@@ -20,9 +20,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
     },
     {
-      path: '/work',
-      name: 'Work',
-      component: () => import('@/views/Work.vue')
+      path: '/creations',
+      name: 'Creations',
+      component: () => import('@/views/Creations.vue')
     },
     {
       path: '/contact',

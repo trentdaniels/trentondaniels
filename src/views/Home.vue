@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <div class="intro">
+      <h1>Trenton.</h1>
+    </div>
     <project-toggle @changed="changeProject"></project-toggle>
     <image-container :project="projects[currentProject]"></image-container>
     <navigation></navigation>
@@ -50,6 +53,10 @@ export default {
     grid-template: 15% 1fr 15% / 20% 40% 40%;
     height: 100vh;
     width: 100vw;
+    .intro {
+      grid-area: 1 / 1 / span 1 / span 1;
+      z-index: 10;
+    }
     #projectToggle {
       grid-area: 1 / 1 / span 3 / span 1;
     }
