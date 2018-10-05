@@ -5,42 +5,38 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    currentProject: 1,
     projects: [
       {
-        id: 1,
         name: 'Slack Rebrand',
         shortDescription: 'Rebrand of the popular team collaboration app',
         image: require('@/assets/placeholder.jpg'),
         secondaryImage: require('@/assets/desert.jpg'),
-        currentProject: true,
         msg: 'Creative.'
       },
       {
-        id: 2,
         name: 'HYPEBEAST Awards',
         shortDescription: 'Award show created with branding and a website mockup for scheduling and event information',
         image: require('@/assets/moon.jpg'),
-        currentProject: false,
         msg: 'Intuitive.'
       },
       {
-        id: 3,
         name: 'INFORMAL Magazine',
         shortDescription: 'Magazine that combines hip-hop and streetwear throughout several ages',
         image: require('@/assets/logo-black.png'),
-        currentProject: false,
         msg: 'Innovative.'
       },
       {
-        id: 4,
         name: 'Take a Knee',
         shortDescription: 'Website that informs about Colin Kapernick\'s stand against inequality',
         image: require('@/assets/logo.png'),
-        currentProject: false,
         msg: 'Thoughtful.'
       }
     ]
+  },
+  getters: {
+    projects(state) {
+      return state.projects;
+    }
   },
   mutations: {
     changeCurrentProject (state, payload) {
