@@ -9,7 +9,7 @@
         name: 'ImageContainer',
         data() {
             return {
-                image: require('@/assets/Name.jpg'),
+                image: require('@/assets/Stripes-small.jpg'),
                 alt: 'An image of me!'
             }
         }

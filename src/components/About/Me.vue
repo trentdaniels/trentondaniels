@@ -9,7 +9,7 @@
             </p>
         </div>
         <div class="button">
-            <router-link to="/creations">Explore My Creations</router-link>
+            <router-link to="/creations">Explore</router-link>
         </div>
     </div>
 </template>
