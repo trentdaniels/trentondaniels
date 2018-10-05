@@ -2,6 +2,8 @@
   <div class="home">
     <project-toggle @changed="changeProject"></project-toggle>
     <image-container :project="projects[currentProject]"></image-container>
+    <navigation></navigation>
+    <project :project="projects[currentProject]"></project>
   </div>
     
 </template>
@@ -10,13 +12,17 @@
 // @ is an alias to /src
 import ProjectToggle from '@/components/Home/ProjectToggle.vue'
 import ImageContainer from '@/components/Home/ImageContainer.vue'
+import Navigation from '@/components/Navigation.vue'
+import Project from '@/components/Home/Project.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
     ProjectToggle,
-    ImageContainer
+    ImageContainer,
+    Navigation,
+    Project
   },
   data () {
     return {
@@ -46,6 +52,9 @@ export default {
     }
     #imageContainer {
       grid-area: 1 / 2 / span 3 / span 1;
+    }
+    #navigation {
+      grid-area: 1 / 3 / span 1 / span 1;
     }
 
   }
