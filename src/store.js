@@ -31,11 +31,37 @@ export default new Vuex.Store({
         image: require('@/assets/logo.png'),
         msg: 'Thoughtful.'
       }
+    ],
+    links: [
+      { 
+          id: 1,
+          url: 'https://www.twitter.com/DanielTrents',
+          img: require('@/assets/Twitter.png')
+      },
+      { 
+          id: 2,
+          url: 'https://www.github.com/trentdaniels',
+          img: require('@/assets/Github.png')
+      },
+      { 
+          id: 3,
+          url: 'https://www.behance.net/trentondaniels',
+          img: require('@/assets/Behance.png')
+      },
+      { 
+          id: 4,
+          url: 'https://www.instagram.com/trentedaniels/',
+          img: require('@/assets/Instagram.png')
+      }
     ]
+    
   },
   getters: {
     projects(state) {
       return state.projects;
+    },
+    links(state) {
+      return state.links;
     }
   },
   mutations: {

@@ -15,7 +15,10 @@
 <style lang="scss" scoped>
 #imageContainer {
     overflow: hidden;
+    text-align: center;
     img {
+        margin: 0;
+        display: block;
         object-fit: cover;
         object-position: center center;
         

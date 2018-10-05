@@ -35,7 +35,8 @@
         display: flex;
         flex-flow: column nowrap;
         align-content: center;
-        justify-content: center;
+        justify-content: space-around;
+        height: 20%;
         li {
             list-style-type: none;
             a {

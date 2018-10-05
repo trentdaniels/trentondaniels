@@ -1,7 +1,7 @@
 <template>
     <div id="social-media">
       <ul class="links">
-        <li><img src="@/assets/heart_whiteflat.png" class="logo" />
+        <li><img src="@/assets/Logo.png" class="logo" />
         <li v-for="link in links" :key="link.id" class="link">
             <a :href="link.url" target="_blank">
                 <img :src="link.img" />
@@ -12,69 +12,50 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
     name: 'SocialMedia',
     data() {
         return {
-            links: [
-                { 
-                    id: 1,
-                    url: 'https://www.twitter.com/DanielTrents',
-                    img: require('@/assets/Twitter.png')
-                },
-                { 
-                    id: 2,
-                    url: 'https://www.github.com/trentdaniels',
-                    img: require('@/assets/Github.png')
-                },
-                { 
-                    id: 3,
-                    url: 'https://www.behance.net/trentondaniels',
-                    img: require('@/assets/Behance.png')
-                },
-                { 
-                    id: 4,
-                    url: 'https://www.instagram.com/trentedaniels/',
-                    img: require('@/assets/Instagram.png')
-                }
-            ]
+            
         }
+    },
+    computed: {
+        ...mapGetters(['links'])
     }
 }
 </script>
 
 <style lang="scss" scoped>
 #social-media {
-    background-color: black;
-    width: 20%;
     display:flex;
-    align-content: center;
     justify-content: center;
-    transition: width .5s ease-in-out;
-    z-index: 5;
+    
     .links {
-        width: 100%;
-        height: 100%;
+        width: 50%;
         display: flex;
-        flex-flow: column nowrap;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-items: center;
+        margin: 0;
         padding: 0;
         justify-content: center;
-        margin: 0;
+        transition: width .3s ease-in-out;
         li {
             list-style: none;
-            padding: 10px;
+            img {
+                width: 60%;
+            }
+            a {
+                img {
+                    width: 60%;
+                }
+            }
+            
+            
         }
-        img {
-            width: 60%;
-        }
-        .logo {
-            width: 80%;
-        }
-    }
-    &:hover {
-        width: 30%;
-        img {
-            width: 60%;
+        &:hover {
+            width: 70%;
         }
     }
 }

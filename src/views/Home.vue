@@ -4,6 +4,7 @@
     <image-container :project="projects[currentProject]"></image-container>
     <navigation></navigation>
     <project :project="projects[currentProject]"></project>
+    <social-media></social-media>
   </div>
     
 </template>
@@ -14,6 +15,7 @@ import ProjectToggle from '@/components/Home/ProjectToggle.vue'
 import ImageContainer from '@/components/Home/ImageContainer.vue'
 import Navigation from '@/components/Navigation.vue'
 import Project from '@/components/Home/Project.vue'
+import SocialMedia from '@/components/SocialMedia.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -22,7 +24,8 @@ export default {
     ProjectToggle,
     ImageContainer,
     Navigation,
-    Project
+    Project,
+    SocialMedia
   },
   data () {
     return {
@@ -55,6 +58,12 @@ export default {
     }
     #navigation {
       grid-area: 1 / 3 / span 1 / span 1;
+    }
+    #project {
+      grid-area: 2 / 3 / span 1 / span 1;
+    }
+    #social-media {
+      grid-area: 3 / 3 / span 1 / span 1;
     }
 
   }

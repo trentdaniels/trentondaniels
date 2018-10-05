@@ -1,8 +1,12 @@
 <template>
     <div id="project">
-        <h1>{{ project.name }}</h1>
-        <p>{{ project.shortDescription }}</p>
-        <button>Go to Project</button>
+        <div class="details">
+            <h1>{{ project.name }}</h1>
+            <p>{{ project.shortDescription }}</p>
+        </div>
+        <div class="button">
+            <button>Go to Project</button>
+        </div>
     </div>
 </template>
 
@@ -17,5 +21,6 @@
     #project {
         display: flex;
         flex-flow: column nowrap;
+        justify-content: center;
     }
 </style>
