@@ -1,6 +1,7 @@
 <template>
     <div id="social-media">
       <ul class="links">
+        <li><img src="@/assets/heart_whiteflat.png" class="logo" />
         <li v-for="link in links" :key="link.id" class="link">
             <a :href="link.url" target="_blank">
                 <img :src="link.img" />
@@ -59,12 +60,15 @@ export default {
         padding: 0;
         justify-content: center;
         margin: 0;
-        .link {
+        li {
             list-style: none;
             padding: 10px;
         }
         img {
             width: 60%;
+        }
+        .logo {
+            width: 80%;
         }
     }
     &:hover {
