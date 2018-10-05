@@ -21,9 +21,17 @@
 </script>
 
 <style lang="scss" scoped>
-    #project {
+    #me {
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
+        .details {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            p {
+                width: 80%;
+            }
+        }
     }
 </style>

@@ -5,7 +5,7 @@
             <p>{{ project.shortDescription }}</p>
         </div>
         <div class="button">
-            <button>Go to Project</button>
+            <router-link :to="{path: '/creations', params:{ id: project.id}}"></router-link>
         </div>
     </div>
 </template>
@@ -22,5 +22,13 @@
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
+        .details {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            p {
+                width: 85%;
+            }
+        }
     }
 </style>

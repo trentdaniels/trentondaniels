@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     projects: [
       {
+        id: 1,
         name: 'Slack Rebrand',
         shortDescription: 'Rebrand of the popular team collaboration app',
         image: require('@/assets/placeholder.jpg'),
@@ -14,18 +15,21 @@ export default new Vuex.Store({
         msg: 'Creative.'
       },
       {
+        id: 2,
         name: 'HYPEBEAST Awards',
         shortDescription: 'Award show created with branding and a website mockup for scheduling and event information',
         image: require('@/assets/moon.jpg'),
         msg: 'Intuitive.'
       },
       {
+        id: 3,
         name: 'INFORMAL Magazine',
         shortDescription: 'Magazine that combines hip-hop and streetwear throughout several ages',
         image: require('@/assets/logo-black.png'),
         msg: 'Innovative.'
       },
       {
+        id: 4,
         name: 'Take a Knee',
         shortDescription: 'Website that informs about Colin Kapernick\'s stand against inequality',
         image: require('@/assets/Logo.png'),

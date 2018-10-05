@@ -49,6 +49,12 @@ export default {
     .contact-info {
       grid-area: 2 / 2 / span 1 / span 1;
       align-self: center;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      p {
+        width: 85%;
+      }
     }
   }
 
