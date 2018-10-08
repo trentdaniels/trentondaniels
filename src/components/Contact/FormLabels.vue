@@ -1,9 +1,9 @@
 <template>
     <div id="formLabels">
-        <p>Sums it up nice dontcha think?</p>
         <div class="field" v-for="label in labels" :key="label">
             <h1>{{ label }}</h1>
         </div>
+        <p>Sums it up nice dontcha think?</p>
     </div>
 </template>
 

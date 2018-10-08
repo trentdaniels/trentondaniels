@@ -8,6 +8,7 @@
          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quibusdam autem facere earum quae ex quam provident. Sint dolores soluta pariatur quasi, expedita minima repellendus consequuntur, ab ipsa, amet iure.
          </p>
+         <h3>trentondaniels95@gmail.com</h3>
        </div>
     </div>
 
