@@ -1,6 +1,8 @@
 <template>
     <div id="imageContainer">
-        <img :src="project.image" :alt="project.shortDescription" />
+        <transition name="fade" mode="out-in">
+            <img :src="project.image" :alt="project.shortDescription" :key="project.id" />
+        </transition>
     </div>
 </template>
 
@@ -24,8 +26,14 @@
     img {
         margin: 0;
         display: block;
-        width: 80%;
+        width: 75%;
     }
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .4s;
 }
 
 </style>

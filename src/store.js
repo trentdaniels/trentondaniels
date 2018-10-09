@@ -56,7 +56,16 @@ export default new Vuex.Store({
           id: 4,
           url: 'https://www.instagram.com/trentedaniels/',
           img: require('@/assets/Instagram.png')
+      },
+      {
+        id: 5,
+        url: 'https://www.linkedin.com/in/trentondaniels/',
+        img: require('@/assets/LinkedIn.png')
       }
+    ],
+    categories: [
+      'Me',
+      'Contact'
     ]
     
   },
@@ -66,6 +75,9 @@ export default new Vuex.Store({
     },
     links(state) {
       return state.links;
+    },
+    categories(state) {
+      return state.categories
     }
   },
   mutations: {
