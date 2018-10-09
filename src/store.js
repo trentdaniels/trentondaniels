@@ -12,28 +12,32 @@ export default new Vuex.Store({
         shortDescription: 'Rebrand of the popular team collaboration app',
         image: require('@/assets/placeholder.jpg'),
         secondaryImage: require('@/assets/desert.jpg'),
-        msg: 'Creative.'
+        msg: 'Creative.',
+        color: '#000000'
       },
       {
         id: 2,
         name: 'HYPEBEAST Awards',
         shortDescription: 'Award show created with branding and a website mockup for scheduling and event information',
         image: require('@/assets/moon.jpg'),
-        msg: 'Intuitive.'
+        msg: 'Intuitive.',
+        color: '#333333'
       },
       {
         id: 3,
         name: 'INFORMAL Magazine',
         shortDescription: 'Magazine that combines hip-hop and streetwear throughout several ages',
         image: require('@/assets/logo-black.png'),
-        msg: 'Innovative.'
+        msg: 'Innovative.',
+        color: '#666666'
       },
       {
         id: 4,
         name: 'Take a Knee',
         shortDescription: 'Website that informs about Colin Kapernick\'s stand against inequality',
         image: require('@/assets/Logo.png'),
-        msg: 'Thoughtful.'
+        msg: 'Thoughtful.',
+        color: '#999999'
       }
     ],
     links: [

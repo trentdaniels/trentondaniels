@@ -20,6 +20,5 @@
             color: white;
         }
     }
-    
 }
 </style>
