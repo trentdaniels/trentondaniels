@@ -5,7 +5,7 @@
     </div>
     <about-toggle @changed="changeCategory"></about-toggle>
     <navigation></navigation>
-    <image-container :category="activeCategory"></image-container>
+    <image-container :category="currentCategory"></image-container>
     <me :category=activeCategory></me>
     <social-media></social-media>
   </div>
@@ -17,6 +17,7 @@ import ImageContainer from '@/components/About/ImageContainer.vue'
 import Me from '@/components/About/Me.vue'
 import SocialMedia from '@/components/SocialMedia.vue'
 import AboutToggle from '@/components/About/AboutToggle.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'About',
@@ -35,6 +36,12 @@ export default {
   methods: {
     changeCategory(index) {
       this.activeCategory = index
+    }
+  },
+  computed: {
+    ...mapGetters(['categories']),
+    currentCategory() {
+      return this.categories[this.activeCategory]
     }
   }
 }

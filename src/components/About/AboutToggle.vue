@@ -1,7 +1,7 @@
 <template>
     <div id="aboutToggle">
         <ul>
-            <li v-for="(category,index) in categories" :key="index"><a @click="changeCategory(index)">{{ category }}</a></li>
+            <li v-for="(category,index) in categories" :key="index"><a @click="changeCategory(index)">{{ category.name }}</a></li>
         </ul>
 
     </div>

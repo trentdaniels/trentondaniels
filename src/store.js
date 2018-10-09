@@ -64,8 +64,14 @@ export default new Vuex.Store({
       }
     ],
     categories: [
-      'Me',
-      'Contact'
+      {
+        name: 'Me',
+        img: require('@/assets/about1.jpg')
+      },
+      {
+        name: 'Contact',
+        img: require('@/assets/about2.jpg')
+      }
     ]
     
   },

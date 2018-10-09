@@ -1,18 +1,13 @@
 <template>
     <div id="imageContainer">
-        <img :src="image" :alt="alt" /> 
+        <img :src="category.img" :alt="category.name" /> 
     </div>
 </template>
 
 <script>
     export default {
         name: 'ImageContainer',
-        data() {
-            return {
-                image: require('@/assets/Stripes-small.jpg'),
-                alt: 'An image of me!'
-            }
-        }
+        props: ['category']
     }
 </script>
 
