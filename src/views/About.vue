@@ -3,10 +3,10 @@
     <div class="intro">
       <h1>Trenton.</h1>
     </div>
-    <about-toggle></about-toggle>
+    <about-toggle @changed="changeCategory"></about-toggle>
     <navigation></navigation>
-    <image-container></image-container>
-    <me></me>
+    <image-container :category="activeCategory"></image-container>
+    <me :category=activeCategory></me>
     <social-media></social-media>
   </div>
 </template>
@@ -27,9 +27,14 @@ export default {
     SocialMedia,
     AboutToggle
   },
-  data: function () {
+  data() {
     return {
       activeCategory: 0
+    }
+  },
+  methods: {
+    changeCategory(index) {
+      this.activeCategory = index
     }
   }
 }
