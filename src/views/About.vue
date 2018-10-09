@@ -1,8 +1,6 @@
 <template>
   <div class="about">
-    <div class="intro">
-      <h1>Trenton.</h1>
-    </div>
+    <logo></logo>
     <about-toggle @changed="changeCategory"></about-toggle>
     <navigation></navigation>
     <image-container :category="currentCategory"></image-container>
@@ -18,6 +16,7 @@ import Me from '@/components/About/Me.vue'
 import SocialMedia from '@/components/SocialMedia.vue'
 import AboutToggle from '@/components/About/AboutToggle.vue'
 import { mapGetters } from 'vuex'
+import Logo from '@/components/Logo.vue'
 
 export default {
   name: 'About',
@@ -26,7 +25,8 @@ export default {
     ImageContainer,
     Me,
     SocialMedia,
-    AboutToggle
+    AboutToggle,
+    Logo
   },
   data() {
     return {
@@ -62,12 +62,8 @@ export default {
     #social-media {
       grid-area: 3 / 3 / span 1 / span 1;
     }
-    .intro {
+    #logo {
       grid-area: 1 / 1 / span 1 / span 1;
-      z-index: 10;
-      h1 {
-        color: white;
-      }
     }
     #aboutToggle {
       grid-area: 1 / 1 / span 3 / span 1;

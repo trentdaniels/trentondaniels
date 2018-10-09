@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <div class="intro">
-      <h1>Trenton.</h1>
-    </div>
+    <logo></logo>
     <project-toggle @changed="changeProject"></project-toggle>
     <image-container :project="projects[currentProject]"></image-container>
     <navigation></navigation>
@@ -19,6 +17,7 @@ import ImageContainer from '@/components/Home/ImageContainer.vue'
 import Navigation from '@/components/Navigation.vue'
 import Project from '@/components/Home/Project.vue'
 import SocialMedia from '@/components/SocialMedia.vue'
+import Logo from '@/components/Logo.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -28,7 +27,8 @@ export default {
     ImageContainer,
     Navigation,
     Project,
-    SocialMedia
+    SocialMedia,
+    Logo
   },
   data () {
     return {
@@ -53,12 +53,8 @@ export default {
     grid-template: 15% 1fr 15% / 20% 40% 40%;
     height: 100vh;
     width: 100vw;
-    .intro {
+    #logo {
       grid-area: 1 / 1 / span 1 / span 1;
-      z-index: 10;
-      h1 {
-        color: white;
-      }
     }
     #projectToggle {
       grid-area: 1 / 1 / span 3 / span 1;
