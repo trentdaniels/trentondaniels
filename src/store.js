@@ -42,27 +42,17 @@ export default new Vuex.Store({
     ],
     links: [
       { 
-          id: 1,
-          url: 'https://www.twitter.com/DanielTrents',
-          img: require('@/assets/Twitter.png')
+        id: 1,
+        url: 'https://www.github.com/trentdaniels',
+        img: require('@/assets/Github.png')
       },
       { 
-          id: 2,
-          url: 'https://www.github.com/trentdaniels',
-          img: require('@/assets/Github.png')
-      },
-      { 
-          id: 3,
-          url: 'https://www.behance.net/trentondaniels',
-          img: require('@/assets/Behance.png')
-      },
-      { 
-          id: 4,
-          url: 'https://www.instagram.com/trentedaniels/',
-          img: require('@/assets/Instagram.png')
+        id: 2,
+        url: 'https://www.behance.net/trentondaniels',
+        img: require('@/assets/Behance.png')
       },
       {
-        id: 5,
+        id: 3,
         url: 'https://www.linkedin.com/in/trentondaniels/',
         img: require('@/assets/LinkedIn.png')
       }

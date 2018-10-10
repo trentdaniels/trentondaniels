@@ -40,9 +40,10 @@
            align-items: center;
            background-position: center center;
            background-size: cover;
+           background-color: black;
            h2 {
                color: white;
-               text-shadow: 1px 1px 7px black;
+               text-shadow: 0px 0px 4px black;
            }
        } 
     }

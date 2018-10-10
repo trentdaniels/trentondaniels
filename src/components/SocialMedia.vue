@@ -43,19 +43,20 @@ export default {
         transition: width .3s ease-in-out;
         li {
             list-style: none;
-            img {
-                width: 60%;
+            .logo {
+                width: 50%;
             }
             a {
                 img {
-                    width: 60%;
+                    width: 50%;
+                    transition: width .3s ease-in-out;
+                    &:hover {
+                        width: 60%;
+                    }
                 }
             }
             
             
-        }
-        &:hover {
-            width: 70%;
         }
     }
 }
