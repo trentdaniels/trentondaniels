@@ -5,6 +5,7 @@
       <navigation></navigation>
       <creation></creation>
       <social-media></social-media>
+      <info></info>
     </div>
 
 </template>
@@ -15,6 +16,7 @@ import ProjectList from '@/components/Creations/ProjectList.vue'
 import SocialMedia from '@/components/SocialMedia.vue'
 import Logo from '@/components/Logo.vue'
 import Creation from '@/components/Creations/Creation.vue'
+import Info from '@/components/Creations/Info.vue'
 export default {
   name: 'Creations',
   components: {
@@ -22,7 +24,8 @@ export default {
     ProjectList,
     SocialMedia,
     Logo,
-    Creation
+    Creation,
+    Info
   },
   data() {
     return {
@@ -58,6 +61,9 @@ export default {
   }
   #social-media {
     grid-area: 3 / 3 / span 1 / span 1;
+  }
+  #info {
+    grid-area: 2 / 3 / span 1 / span 1;
   }
 }
 </style>

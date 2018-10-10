@@ -27,7 +27,7 @@ export default new Vuex.Store({
         id: 3,
         name: 'INFORMAL Magazine',
         shortDescription: 'Magazine that combines hip-hop and streetwear throughout several ages',
-        image: require('@/assets/logo-black.png'),
+        image: require('@/assets/camera.jpg'),
         msg: 'Innovative.',
         color: '#666666'
       },
@@ -35,7 +35,7 @@ export default new Vuex.Store({
         id: 4,
         name: 'Take a Knee',
         shortDescription: 'Website that informs about Colin Kapernick\'s stand against inequality',
-        image: require('@/assets/Logo.png'),
+        image: require('@/assets/nature.jpg'),
         msg: 'Thoughtful.',
         color: '#999999'
       }

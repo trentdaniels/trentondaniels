@@ -1,8 +1,8 @@
 <template>
     <div class="projectList">
         <div class="list">
-            <div class="project" v-for="project in projects" :key="project.id" :style="{'background-color': project.color}">
-                <h3>{{ project.name }}</h3>
+            <div class="project" v-for="project in projects" :key="project.id" :style="{backgroundImage: `url('${project.image}')`}">
+                <h2>{{ project.name }}</h2>
             </div>
         </div>
     </div>
@@ -15,7 +15,6 @@
         computed: {
             ...mapGetters(['projects'])
         }
-
     }
 </script>
 
@@ -39,8 +38,11 @@
            display: flex;
            justify-content: center;
            align-items: center;
-           h3 {
+           background-position: center center;
+           background-size: cover;
+           h2 {
                color: white;
+               text-shadow: 1px 1px 7px black;
            }
        } 
     }
