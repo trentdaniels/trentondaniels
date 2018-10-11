@@ -5,7 +5,7 @@
             <p>{{ project.shortDescription }}</p>
         </div>
         <div class="button">
-            <router-link :to="{path: '/creations', params:{ id: project.id}}"></router-link>
+            <router-link :to="{name: 'Creation', params:{ id: project.id}}" exact>Explore Project</router-link>
         </div>
     </div>
 </template>

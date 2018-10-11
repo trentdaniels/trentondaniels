@@ -28,6 +28,12 @@ export default new Router({
       path: '/contact',
       name: 'Contact',
       component: () => import('@/views/Contact.vue')
+    },
+    {
+      path: '/creations/:id',
+      props: true,
+      name: 'Creation',
+      component: () => import('@/views/Creation.vue')
     }
   ]
 })

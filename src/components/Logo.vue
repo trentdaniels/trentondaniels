@@ -16,6 +16,7 @@
 #logo {
     z-index: 10;
     a {
+        text-decoration: none;
         h1 {
             color: white;
         }
