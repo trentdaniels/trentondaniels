@@ -41,14 +41,6 @@ export default {
   methods: {
     changeProject(index) {
       this.currentProject = index
-    },
-    slideProject() {
-      setInterval(() => {
-        this.currentProject++
-        if(this.currentProject === this.projects.length) {
-          this.currentProject = 0
-        }
-      }, 7000)
     }
   }
 }
