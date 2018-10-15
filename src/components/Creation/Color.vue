@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div id="color">
 
     </div>
 </template>
 
 <script>
     export default {
-        
+        name: 'Color'
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
