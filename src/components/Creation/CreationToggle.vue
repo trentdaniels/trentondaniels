@@ -1,16 +1,54 @@
 <template>
     <div id="creationToggle">
-
+        <h4>{{ name }}</h4>
+        <ul>
+            <li v-for="(section, index) in sections" :key="index"><a @click="changeSection(index)">{{section}}</a></li>
+        </ul>
     </div>
 </template>
 
 <script>
     
     export default {
-        name: 'CreationToggle'
+        name: 'CreationToggle',
+        props: ['sections','name'],
+        methods: {
+            changeSection(index) {
+                this.$emit('changed', index)
+            }
+        }
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+#creationToggle {
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: center;
+    background-color: black;
+    ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: space-around;
+        height: 20%;
+        li {
+            list-style-type: none;
+            a {
+                color: white;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            
+        }
+    }
+    h4 {
+        color: white;
+    }
+}
 
 </style>
