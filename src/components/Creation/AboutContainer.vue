@@ -23,7 +23,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    background-color: white;
+    background-color: black;
     .image-container {
         overflow: hidden;
         height: 80%;
@@ -38,14 +38,13 @@
         }
     }
     .statement {
-        background-color: white;
         height: 20%;
         width: 100%;
         display: flex;
         justify-content: center;
         p {
             align-self: flex-start;
-            color: black;
+            color: white;
             width: 80%;
         }
     }

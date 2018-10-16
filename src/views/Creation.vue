@@ -4,6 +4,7 @@
         <creation-toggle @changed="changeSection" :sections="sections" :name="project.name"></creation-toggle>
         <navigation></navigation>
         <template v-if="currentSection === 0">
+            <about-info :project="project"></about-info>
             <about-container :project="project"></about-container>
         </template>
         
@@ -18,6 +19,7 @@
     import SocialMedia from '@/components/SocialMedia.vue'
     import AboutContainer from '@/components/Creation/AboutContainer.vue'
     import Logo from '@/components/Logo.vue'
+    import AboutInfo from '@/components/Creation/AboutInfo.vue'
     export default {
         name: 'Creation',
         props: ['id'],
@@ -26,6 +28,7 @@
             Navigation,
             SocialMedia,
             AboutContainer,
+            AboutInfo,
             Logo
         },
         data() {
@@ -75,6 +78,9 @@
     }
     #logo {
         grid-area: 1 / 1 / span 1 / span 1;
+    }
+    #aboutInfo {
+        grid-area: 2 / 3 / span 1 / span 1;
     }
 }
 
