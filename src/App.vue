@@ -19,5 +19,13 @@ export default {
   color: #2c3e50;
   width: 100%;
 }
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('./fonts/BebasNeue-Regular.otf');
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url('./fonts/OpenSans-Light.ttf');
+}
 
 </style>

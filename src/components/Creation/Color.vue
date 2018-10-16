@@ -1,5 +1,8 @@
 <template>
     <div id="color">
+        <div class="title">
+            <h3>Colors</h3>
+        </div>
         <div 
             class="color-card" 
             v-for="(color,index) in colors"
@@ -28,6 +31,8 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    justify-content: space-around;
+    height: 45%;
     .color-card {
         display: flex;
         flex-flow: row nowrap;
@@ -38,7 +43,7 @@
         .color-block {
             box-sizing: border-box;
             width: 45%;
-            height: 100%;
+            padding: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,6 +54,12 @@
             p {
                 text-align: left;
             }
+        }
+    }
+    .title {
+        width: 90%;
+        h3 {
+            text-align: left;
         }
     }
 }

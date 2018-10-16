@@ -3,7 +3,9 @@
         <h4>{{ name }}</h4>
         <ul>
             <li v-for="(section, index) in sections" :key="index"><a @click="changeSection(index)">{{section}}</a></li>
+            <li><router-link to="/creations">Back</router-link></li>
         </ul>
+        
     </div>
 </template>
 
@@ -48,6 +50,9 @@
     }
     h4 {
         color: white;
+    }
+    a {
+        color: white; 
     }
 }
 
