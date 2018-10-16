@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <logo></logo>
-    <about-toggle @changed="changeCategory"></about-toggle>
+    <about-toggle @changed="changeCategory" :categories="categories"></about-toggle>
     <navigation></navigation>
     <image-container :category="currentCategory"></image-container>
     <me :category=activeCategory></me>
@@ -15,7 +15,6 @@ import ImageContainer from '@/components/About/ImageContainer.vue'
 import Me from '@/components/About/Me.vue'
 import SocialMedia from '@/components/SocialMedia.vue'
 import AboutToggle from '@/components/About/AboutToggle.vue'
-import { mapGetters } from 'vuex'
 import Logo from '@/components/Logo.vue'
 
 export default {
@@ -30,7 +29,17 @@ export default {
   },
   data() {
     return {
-      activeCategory: 0
+      activeCategory: 0,
+      categories: [
+        {
+          name: 'Me',
+          img: require('@/assets/about1.jpg')
+        },
+        {
+          name: 'Contact',
+          img: require('@/assets/about2.jpg')
+        }
+      ]
     }
   },
   methods: {
@@ -39,7 +48,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['categories']),
     currentCategory() {
       return this.categories[this.activeCategory]
     }

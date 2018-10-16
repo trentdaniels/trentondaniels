@@ -12,15 +12,28 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 export default {
     name: 'SocialMedia',
     data() {
         return {
+            links: [
+                { 
+                    id: 1,
+                    url: 'https://www.github.com/trentdaniels',
+                    img: require('@/assets/Github.png')
+                },
+                { 
+                    id: 2,
+                    url: 'https://www.behance.net/trentondaniels',
+                    img: require('@/assets/Behance.png')
+                },
+                {
+                    id: 3,
+                    url: 'https://www.linkedin.com/in/trentondaniels/',
+                    img: require('@/assets/LinkedIn.png')
+                }
+            ],
         }
-    },
-    computed: {
-        ...mapGetters(['links'])
     }
 }
 </script>

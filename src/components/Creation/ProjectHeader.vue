@@ -1,17 +1,24 @@
 <template>
     <header id="projectHeader">
-        <h1>{{ title }}</h1>
+        <h1>{{ project.name }}</h1>
         <div class="image-container">
-            <img :src="image" :alt="title"/>
+            <img :src="project.image" :alt="project.name"/>
         </div>
-        <p>{{ description }}</p>
+        <p>{{ project.shortDescription }}</p>
     </header>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     export default {
         name: 'ProjectHeader',
-        props: ['title', 'image', 'description']
+        props: ['id'],
+        computed: {
+            ...mapGetters(['projects']),
+            project() {
+                return this.projects.find(p => p.id === this.id)
+            }
+        }
     }
 </script>
 

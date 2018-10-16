@@ -11,9 +11,7 @@
     import {mapGetters} from 'vuex';
     export default {
       name: 'AboutToggle',
-      computed: {
-          ...mapGetters(['categories'])
-      },
+      props: ['categories'],
       methods: {
           changeCategory(index) {
               this.$emit('changed', index)

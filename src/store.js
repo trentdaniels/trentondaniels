@@ -40,100 +40,19 @@ export default new Vuex.Store({
         color: '#999999'
       }
     ],
-    links: [
-      { 
-        id: 1,
-        url: 'https://www.github.com/trentdaniels',
-        img: require('@/assets/Github.png')
-      },
-      { 
-        id: 2,
-        url: 'https://www.behance.net/trentondaniels',
-        img: require('@/assets/Behance.png')
-      },
-      {
-        id: 3,
-        url: 'https://www.linkedin.com/in/trentondaniels/',
-        img: require('@/assets/LinkedIn.png')
-      }
-    ],
-    categories: [
-      {
-        name: 'Me',
-        img: require('@/assets/about1.jpg')
-      },
-      {
-        name: 'Contact',
-        img: require('@/assets/about2.jpg')
-      }
-    ]
+    
+    
     
   },
   getters: {
     projects(state) {
       return state.projects;
-    },
-    links(state) {
-      return state.links;
-    },
-    categories(state) {
-      return state.categories
     }
   },
   mutations: {
-    changeCurrentProject (state, payload) {
-      state.currentProject += payload
-    },
-    resetProject (state) {
-      if (state.currentProject < 1) {
-        state.currentProject = state.projects.length
-      } else if (state.currentProject > state.projects.length) {
-        state.currentProject = 1
-      }
-    },
-    reorderProjects (state, payload) {
-      if (payload !== 0) {
-        let projects = state.projects
-        projects.find(project => project.currentProject === true).currentProject = false
-        projects.find(project => project.id === payload.id).currentProject = true
-        state.projects = projects
-      }
-    },
-    updateCurrentNumber (state, payload) {
-      state.currentProject = payload.id
-    },
-    incrementProjects(state,payload) {
-      let projects = state.projects
-      projects.find(project => project.id === payload.id).currentProject = false
-      
-      projects.find(project => {
-        if(payload.id + 1 > projects.length)
-        {
-          return project.id === 1
-        }
-        else {
-          return project.id === payload.id + 1
-        }
-      }).currentProject = true
-      
-      state.currentProject++
-      if (state.currentProject > projects.length) {
-        state.currentProject = 1
-      }
-      state.projects = projects
-    }
+
   },
   actions: {
-    changeCurrentProject (context, payload) {
-      context.commit('changeCurrentProject', payload)
-      context.commit('resetProject')
-    },
-    reorderProjects (context, payload) {
-      context.commit('reorderProjects', payload)
-      context.commit('updateCurrentNumber', payload)
-    },
-    incrementProjects(context, payload) {
-      context.commit('incrementProjects', payload)
-    }
+    
   }
 })

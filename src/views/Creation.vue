@@ -2,11 +2,10 @@
     <div id="creation">
         <project-nav :projects="projects"></project-nav>
         <project-header 
-            :title="project.name" 
-            :image="project.image"
-            :description="project.shortDescription"
+            :id="project.id"
         >
         </project-header>
+        <project-branding :project="project"></project-branding>
 
     </div>
 </template>
@@ -15,12 +14,14 @@
     import { mapGetters } from 'vuex'
     import ProjectNav from '@/components/Creation/ProjectNav.vue'
     import ProjectHeader from '@/components/Creation/ProjectHeader.vue'
+    import ProjectBranding from '@/components/Creation/ProjectBranding.vue'
     export default {
         name: 'Creation',
         props: ['id'],
         components: {
             ProjectNav,
-            ProjectHeader
+            ProjectHeader,
+            ProjectBranding
         },
         computed: {
             ...mapGetters(['projects']),
