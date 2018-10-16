@@ -1,9 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import hypebeast from './ProjectDetails/Hypebeast'
+import slack from './ProjectDetails/Slack'
+import informal from './ProjectDetails/Informal'
+import takeAKnee from './ProjectDetails/TakeAKnee'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  modules: {
+    1: slack,
+    2: hypebeast,
+    3: informal,
+    4: takeAKnee
+  },
   state: {
     projects: [
       {

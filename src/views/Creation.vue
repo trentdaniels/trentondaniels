@@ -1,33 +1,39 @@
 <template>
     <div id="creation">
-        <project-nav :projects="projects"></project-nav>
-        <project-header 
-            :id="project.id"
-        >
-        </project-header>
-        <project-branding :project="project"></project-branding>
-
+        <creation-toggle @changed="changeSection" :sections="sections"></creation-toggle>
     </div>
 </template>
 
 <script>
     import { mapGetters } from 'vuex'
-    import ProjectNav from '@/components/Creation/ProjectNav.vue'
-    import ProjectHeader from '@/components/Creation/ProjectHeader.vue'
-    import ProjectBranding from '@/components/Creation/ProjectBranding.vue'
+    import CreationToggle from '@/components/Creation/CreationToggle.vue'
     export default {
         name: 'Creation',
         props: ['id'],
         components: {
-            ProjectNav,
-            ProjectHeader,
-            ProjectBranding
+            CreationToggle
+        },
+        data() {
+            return {
+                sections: [
+                    'About',
+                    'Branding',
+                    'Finals'
+                ],
+                currentSection: 0
+            }
         },
         computed: {
             ...mapGetters(['projects']),
             project() {
                 let project = this.projects.find(p => p.name === this.id)
-                return project;
+                let fullProject = this.$store.state[project.id]
+                return fullProject;
+            }
+        },
+        methods: {
+            changeSection(index) {
+                this.currentSection = index;
             }
         }
 
