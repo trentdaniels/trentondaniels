@@ -20,6 +20,9 @@
     align-items: center;
     width: 70%;
     margin: 0 auto;
+    a {
+        color: black;
+    }
 }
 
 </style>

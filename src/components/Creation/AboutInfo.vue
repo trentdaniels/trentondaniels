@@ -1,6 +1,6 @@
 <template>
     <div id="aboutInfo">
-        <h1>{{ project.name }}</h1>
+        <h1>{{ project.headline }}</h1>
         <p v-for="detail in project.details" :key="detail">{{ detail }}</p>
     </div>
 </template>
