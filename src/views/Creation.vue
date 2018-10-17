@@ -8,7 +8,8 @@
             <about-container :project="project"></about-container>
         </template>
         <template v-else-if="currentSection === 1">
-            <branding :project="project"></branding>
+            <branding id="color" :colors="project.colors" :typefaces="project.typefaces"></branding>
+            <branding-info :branding="project.branding"></branding-info>
         </template>
         
         <social-media></social-media>
@@ -24,6 +25,7 @@
     import Logo from '@/components/Logo.vue'
     import AboutInfo from '@/components/Creation/AboutInfo.vue'
     import Branding from '@/components/Creation/ProjectBranding.vue'
+    import BrandingInfo from '@/components/Creation/BrandingInfo.vue'
     export default {
         name: 'Creation',
         props: ['id'],
@@ -34,14 +36,15 @@
             AboutContainer,
             AboutInfo,
             Logo,
-            Branding
+            Branding,
+            BrandingInfo
         },
         data() {
             return {
                 sections: [
                     'Inspiration',
                     'Branding',
-                    'Production'
+                    'Solution'
                 ],
                 currentSection: 0
             }
@@ -87,8 +90,14 @@
     #aboutInfo {
         grid-area: 2 / 3 / span 1 / span 1;
     }
-    #projectBranding {
+    #color {
         grid-area: 1 / 2 / span 3 / span 1;
+    }
+    #typeface {
+        grid-area: 2 / 3 / span 1 / span 1;
+    }
+    #brandingInfo {
+        grid-area: 2 / 3 / span 1 / span 1;
     }
 }
 

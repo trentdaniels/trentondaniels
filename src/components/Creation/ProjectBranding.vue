@@ -1,7 +1,7 @@
 <template>
-    <div id="projectBranding">
-        <color :colors="project.colors"></color>
-        <type :typefaces="project.typefaces"></type>
+    <div>
+        <color :colors="colors"></color>
+        <type :typefaces="typefaces"></type>
     </div>
 </template>
 
@@ -14,7 +14,7 @@
             Color,
             Type
         },
-        props: ['project']
+        props: ['colors', 'typefaces']
 
     }
 </script>

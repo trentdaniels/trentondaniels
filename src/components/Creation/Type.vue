@@ -1,20 +1,15 @@
 <template>
     <div id="type">
-        <div class="title">
-            <h3>Typefaces</h3>
-        </div>
         <div 
             class="typeface-card" 
             v-for="(typeface, index) in typefaces" 
             :key="index"
+            :style="{fontFamily: typeface.font}"
+            :class="{black: index % 2 !== 0}"
         >
-            <div class="typeface-font" :style="{fontFamily: typeface.font}">
-                <h2 >{{ typeface.name }}</h2>
-                <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-            </div>
-            <div class="typeface-description">
-                <p>{{ typeface.description }}</p>
-            </div>
+            <h2>{{ typeface.name }}</h2>
+            <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+            <p>{{ typeface.description }}</p>
         </div>
 
     </div>
@@ -30,45 +25,29 @@
 <style lang="scss" scoped>
 #type {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     align-items: center;
-    height: 45%;
-    width: 100%;
-    justify-content: space-around;
-    h2, p {
-        text-align: left;
-    }
-    .title {
-        width: 90%;
-        h3 {
-            text-align: left;
-        }
-    }
+    height: 50%;
     .typeface-card {
-        width: 90%;
-        height: 100px;
+        height: 100%;
         display: flex;
-        align-items: flex-start;
-        .typeface-font {
-            width: 45%;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        flex: 1 1 0;
+        h2 {
+            text-align: left;
+            width: 85%;
+        }
+        p {
+            text-align: left;
+            width: 85%;
             overflow-wrap: break-word;
-            h2 {
-                margin-top: 0;
-                font-size: 1.7rem;
-                margin-bottom: 10px;
-            }
-            p {
-                margin: 0;
-                widtH: 80%;
-            }
         }
-        .typeface-description {
-            width: 55%;
-            padding-left: 15px;
-            p {
-                margin: 0;
-            }
-        }
+    }
+    .black {
+        color: white;
+        background-color: black;
     }
 }
 

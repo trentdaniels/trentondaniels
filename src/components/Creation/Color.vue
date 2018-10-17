@@ -1,19 +1,16 @@
 <template>
     <div id="color">
-        <div class="title">
-            <h3>Colors</h3>
-        </div>
         <div 
             class="color-card" 
             v-for="(color,index) in colors"
             :key="index"
+            :style="{backgroundColor: color.hexCode}"
         >
-            <div class="color-block border" :style="{backgroundColor: color.hexCode}">
+            <h2 :class="{black: color.hexCode === '#FFFFFF'}">{{ color.hexCode }}</h2> 
+            <p :class="{black: color.hexCode === '#FFFFFF'}">{{ color.description }}</p> 
+            <!-- <div class="color-block" :style="{backgroundColor: color.hexCode}">
                 <h4 :class="{black: color.hexCode === '#FFFFFF'}">{{ color.hexCode }}</h4>
-            </div>
-            <div class="color-description">
-                <p>{{ color.description }}</p>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -29,45 +26,29 @@
 <style lang="scss" scoped>
 #color {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-around;
-    height: 45%;
+    justify-content: center;
+    height: 50%;
     .color-card {
         display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
+        flex-flow: column nowrap;
+        justify-content: center;
         align-items: center;
-        height: 150px;
-        width: 90%;
-        .color-block {
-            box-sizing: border-box;
-            width: 45%;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .color-description {
-            width: 55%;
-            padding-left: 15px;
-            p {
-                text-align: left;
-            }
-        }
-    }
-    .title {
-        width: 90%;
-        h3 {
+        height: 100%;
+        flex: 1 1 0;
+        h2 {
             text-align: left;
+            width: 85%;
+        }
+        p {
+            text-align: left;
+            width: 85%;
         }
     }
 }
 
-.border {
-    border: black 3px solid;
-}
-h4 {
+h2,p {
     color: white;
 }
 .black {
