@@ -1,7 +1,7 @@
 <template>
     <div id="creation">
         <logo></logo>
-        <creation-toggle @changed="changeSection" :sections="sections" :name="project.name"></creation-toggle>
+        <creation-toggle @changed="changeSection" :sections="sections" :currentSection="currentSection" :name="project.name"></creation-toggle>
         <navigation></navigation>
         <template v-if="currentSection === 0">
             <about-info :project="project"></about-info>

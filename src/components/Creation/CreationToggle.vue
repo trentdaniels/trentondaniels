@@ -2,7 +2,7 @@
     <div id="creationToggle">
         <h4>{{ name }}</h4>
         <ul>
-            <li v-for="(section, index) in sections" :key="index"><a @click="changeSection(index)">{{section}}</a></li>
+            <li v-for="(section, index) in sections" :key="index"><a @click="changeSection(index)" :class="{bold: index === currentSection}">{{section}}</a></li>
             <li><router-link to="/creations">Back</router-link></li>
         </ul>
         
@@ -13,7 +13,7 @@
     
     export default {
         name: 'CreationToggle',
-        props: ['sections','name'],
+        props: ['sections','name', 'currentSection'],
         methods: {
             changeSection(index) {
                 this.$emit('changed', index)
@@ -53,6 +53,9 @@
     }
     a {
         color: white; 
+    }
+    .bold {
+        font-weight: bold;
     }
 }
 
