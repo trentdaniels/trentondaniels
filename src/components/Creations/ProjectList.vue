@@ -2,7 +2,7 @@
     <div class="projectList">
         <div class="list">
             <router-link
-                :to="{name: 'Creation', params: {id: project.name}}"
+                :to="{name: 'Creation', params: {id: project.id}}"
                 v-for="project in projects"
                 :key="project.id">
                     <div class="project" :style="{backgroundImage: `url('${project.image}')`}">

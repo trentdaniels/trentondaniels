@@ -9,7 +9,17 @@
         </template>
         <template v-else-if="currentSection === 1">
             <branding :colors="project.colors" :typefaces="project.typefaces"></branding>
-            <branding-info :branding="project.branding"></branding-info>
+            <branding-info>
+                <h1>Branding</h1>
+                <p>{{ project.branding }}</p>
+            </branding-info>
+        </template>
+        <template v-else-if="currentSection === 2">
+            <slider :solutions="project.solutions"></slider>
+            <branding-info>
+                <h1>Solutions</h1>
+                <p>{{ project.branding }}</p>
+            </branding-info>
         </template>
         
         <social-media></social-media>
@@ -26,6 +36,7 @@
     import AboutInfo from '@/components/Creation/AboutInfo.vue'
     import Branding from '@/components/Creation/ProjectBranding.vue'
     import BrandingInfo from '@/components/Creation/BrandingInfo.vue'
+    import Slider from '@/components/Creation/ProjectSlider.vue'
     export default {
         name: 'Creation',
         props: ['id'],
@@ -37,7 +48,8 @@
             AboutInfo,
             Logo,
             Branding,
-            BrandingInfo
+            BrandingInfo,
+            Slider
         },
         data() {
             return {
@@ -50,11 +62,9 @@
             }
         },
         computed: {
-            ...mapGetters(['projects']),
             project() {
-                let project = this.projects.find(p => p.name === this.id)
-                let fullProject = this.$store.state[project.id]
-                return fullProject;
+                const project = this.$store.state[this.id]
+                return project;
             }
         },
         methods: {
@@ -95,6 +105,9 @@
     }
     #brandingInfo {
         grid-area: 2 / 3 / span 1 / span 1;
+    }
+    #project-slider {
+        grid-area: 1 / 2 / span 3 / span 1;
     }
 }
 

@@ -1,7 +1,6 @@
 <template>
     <div id="brandingInfo">
-        <h1>Branding.</h1>
-        <p>{{ branding }}</p>
+        <slot></slot>
     </div>
 </template>
 

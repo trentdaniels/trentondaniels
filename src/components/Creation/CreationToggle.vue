@@ -3,9 +3,7 @@
         <h4>{{ name }}</h4>
         <ul>
             <li v-for="(section, index) in sections" :key="index"><a @click="changeSection(index)" :class="{bold: index === currentSection}">{{section}}</a></li>
-            <li><router-link to="/creations">Back</router-link></li>
         </ul>
-        
     </div>
 </template>
 

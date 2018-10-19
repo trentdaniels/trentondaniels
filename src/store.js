@@ -9,15 +9,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    1: slack,
-    2: hypebeast,
-    3: informal,
-    4: takeAKnee
+    'slack': slack,
+    'hypebeast-awards': hypebeast,
+    'informal': informal,
+    'take-a-knee': takeAKnee
   },
   state: {
     projects: [
       {
-        id: 1,
+        id: 'slack',
         name: 'Slack Rebrand',
         shortDescription: 'Rebrand of the popular team collaboration app',
         image: require('@/assets/placeholder.jpg'),
@@ -26,7 +26,7 @@ export default new Vuex.Store({
         color: '#000000'
       },
       {
-        id: 2,
+        id: 'hypebeast-awards',
         name: 'HYPEBEAST Awards',
         shortDescription: 'Award show created with branding and a website mockup for scheduling and event information',
         image: require('@/assets/moon.jpg'),
@@ -34,7 +34,7 @@ export default new Vuex.Store({
         color: '#333333'
       },
       {
-        id: 3,
+        id: 'informal',
         name: 'INFORMAL Magazine',
         shortDescription: 'Magazine that combines hip-hop and streetwear throughout several ages',
         image: require('@/assets/camera.jpg'),
@@ -42,7 +42,7 @@ export default new Vuex.Store({
         color: '#666666'
       },
       {
-        id: 4,
+        id: 'take-a-knee',
         name: 'Take a Knee',
         shortDescription: 'Website that informs about Colin Kapernick\'s stand against inequality',
         image: require('@/assets/nature.jpg'),
