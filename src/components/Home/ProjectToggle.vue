@@ -1,7 +1,16 @@
 <template>
     <div id="projectToggle">
         <ul>
-            <li v-for="(project, index) in projects" :key="index"><a @click="changeProject(index)">{{project.name}}</a></li>
+            <li 
+                v-for="(project, index) in projects" 
+                :key="index">
+                <a 
+                    @click="changeProject(index)"
+                    :class="{bold: index === currentProject}"
+                >
+                    {{project.name}}
+                </a>
+            </li>
         </ul>
 
     </div>
@@ -11,6 +20,7 @@
     import {mapGetters} from 'vuex';
     export default {
       name: 'ProjectToggle',
+      props: ['currentProject'],
       computed: {
           ...mapGetters(['projects'])
       },
@@ -24,6 +34,8 @@
 </script>
 
 <style lang="scss" scoped>
+
+
 #projectToggle {
     display: flex;
     flex-flow: column nowrap;
@@ -44,6 +56,9 @@
                 color: white;
                 &:hover {
                     cursor: pointer;
+                }
+                &.bold {
+                    font-weight: bold;
                 }
             }
         }

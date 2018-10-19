@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="projectBranding">
         <color :colors="colors"></color>
         <type :typefaces="typefaces"></type>
     </div>
@@ -18,13 +18,12 @@
 
     }
 </script>
-
-<style lang="scss" scoped>
+<style lang="scss">
 #projectBranding {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
 }
-    
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <logo></logo>
-    <project-toggle @changed="changeProject"></project-toggle>
+    <project-toggle @changed="changeProject" :currentProject="currentProject"></project-toggle>
     <image-container :project="projects[currentProject]"></image-container>
     <navigation></navigation>
     <project :project="projects[currentProject]"></project>

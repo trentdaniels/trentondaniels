@@ -1,17 +1,21 @@
 <template>
     <div id="type">
         <div 
-            class="typeface-card" 
-            v-for="(typeface, index) in typefaces" 
+            class="media" 
+            v-for="(type,index) in typefaces"
             :key="index"
-            :style="{fontFamily: typeface.font}"
-            :class="{black: index % 2 !== 0}"
+            :style="{fontFamily: type.font}"
         >
-            <h2>{{ typeface.name }}</h2>
-            <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-            <p>{{ typeface.description }}</p>
+            <div class="media-left">
+                <div class="type-block">TYPE</div>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <p><strong>{{ type.name }}</strong></p>
+                    <p>{{ type.description }}</p>
+                </div>
+            </div>
         </div>
-
     </div>
 </template>
 
@@ -23,32 +27,29 @@
 </script>
 
 <style lang="scss" scoped>
+@import '../../../node_modules/bulma/sass/utilities/_all.sass';
+@import '../../../node_modules/bulma/sass/components/media.sass';
 #type {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    height: 50%;
-    .typeface-card {
-        height: 100%;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        flex: 1 1 0;
-        h2 {
-            text-align: left;
-            width: 85%;
+    padding: 20px;
+    width: 100%;
+    .media {
+        .type-block {
+            position: relative;
+            display: flex;
+            widtH: 90px;
+            height: 90px;
+            margin-right: 1rem;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-color: black;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
         p {
-            text-align: left;
-            width: 85%;
-            overflow-wrap: break-word;
+            margin-top: 0;
         }
     }
-    .black {
-        color: white;
-        background-color: black;
-    }
+    
 }
-
 </style>

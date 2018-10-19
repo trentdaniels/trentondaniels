@@ -1,21 +1,26 @@
 <template>
     <div id="color">
         <div 
-            class="color-card" 
+            class="media" 
             v-for="(color,index) in colors"
             :key="index"
-            :style="{backgroundColor: color.hexCode}"
         >
-            <h2 :class="{black: color.hexCode === '#FFFFFF'}">{{ color.hexCode }}</h2> 
-            <p :class="{black: color.hexCode === '#FFFFFF'}">{{ color.description }}</p> 
-            <!-- <div class="color-block" :style="{backgroundColor: color.hexCode}">
-                <h4 :class="{black: color.hexCode === '#FFFFFF'}">{{ color.hexCode }}</h4>
-            </div> -->
+            <div class="media-left">
+                <div :style="{backgroundColor: color.hexCode}" class="color-block" :class="{border: color.hexCode === '#FFFFFF'}"></div>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <p><strong>{{ color.hexCode }}</strong></p>
+                    <p>{{ color.description }}</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
 
 <script>
+    
     import {mapGetters} from 'vuex'
     export default {
         name: 'Color',
@@ -24,35 +29,25 @@
 </script>
 
 <style lang="scss" scoped>
+@import '../../../node_modules/bulma/sass/utilities/_all.sass';
+@import '../../../node_modules/bulma/sass/components/media.sass';
 #color {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    height: 50%;
-    .color-card {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        flex: 1 1 0;
-        h2 {
-            text-align: left;
-            width: 85%;
-        }
+    padding: 20px;
+    .color-block {
+        position: relative;
+        display: block;
+        widtH: 90px;
+        height: 90px;
+        margin-right: 1rem;
+    }
+    .media {
         p {
-            text-align: left;
-            width: 85%;
+            margin-top: 0;
         }
     }
+    
+    .border {
+        border: .5px solid lightgrey;
+    }
 }
-
-h2,p {
-    color: white;
-}
-.black {
-    color: black;
-}
-
 </style>

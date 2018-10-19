@@ -13,7 +13,7 @@
 </script>
 
 <style lang="scss" scoped>
-#aboutInfo {
+#brandingInfo {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;

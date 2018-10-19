@@ -8,7 +8,7 @@
             <about-container :project="project"></about-container>
         </template>
         <template v-else-if="currentSection === 1">
-            <branding id="color" :colors="project.colors" :typefaces="project.typefaces"></branding>
+            <branding :colors="project.colors" :typefaces="project.typefaces"></branding>
             <branding-info :branding="project.branding"></branding-info>
         </template>
         
@@ -90,11 +90,8 @@
     #aboutInfo {
         grid-area: 2 / 3 / span 1 / span 1;
     }
-    #color {
+    #projectBranding {
         grid-area: 1 / 2 / span 3 / span 1;
-    }
-    #typeface {
-        grid-area: 2 / 3 / span 1 / span 1;
     }
     #brandingInfo {
         grid-area: 2 / 3 / span 1 / span 1;
