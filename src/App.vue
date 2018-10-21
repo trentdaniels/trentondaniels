@@ -10,15 +10,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  width: 100%;
 }
 @font-face {
   font-family: 'BebasNeue';
@@ -27,6 +24,9 @@ export default {
 @font-face {
   font-family: 'OpenSans';
   src: url('./fonts/OpenSans-Light.ttf');
+}
+.router-link-active {
+  font-weight: bold;
 }
 
 </style>

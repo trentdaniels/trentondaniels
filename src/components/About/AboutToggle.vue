@@ -35,6 +35,7 @@
         align-content: center;
         justify-content: space-around;
         height: 10%;
+        text-align: center;
         li {
             list-style-type: none;
             a {

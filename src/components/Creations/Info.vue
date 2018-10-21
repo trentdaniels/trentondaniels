@@ -19,8 +19,13 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    justify-content: center;
     p {
-        width: 85%;
+        width: 75%;
+    }
+    h1 {
+        width: 75%;
+        text-align: center;
     }
 }
 </style>

@@ -13,8 +13,8 @@
 <style lang="scss" scoped>
 #creation {
     display: flex;
-    flex-flow: column nowrap;
     justify-content: center;
+    align-items: center;
     background-color: black;
     h1 {
         color: white;

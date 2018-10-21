@@ -42,28 +42,27 @@ export default {
 #social-media {
     display:flex;
     justify-content: center;
-    
     .links {
-        width: 50%;
+        flex-basis: 70%;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        justify-items: center;
         margin: 0;
         padding: 0;
         justify-content: center;
         transition: width .3s ease-in-out;
         li {
+            flex: 0 0 20%;
             list-style: none;
-            .logo {
-                width: 50%;
-            }
             a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 img {
-                    width: 50%;
+                    width: 35px;
                     transition: width .3s ease-in-out;
                     &:hover {
-                        width: 60%;
+                        width: 40px;
                     }
                 }
             }

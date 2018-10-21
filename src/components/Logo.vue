@@ -15,10 +15,13 @@
 <style lang="scss" scoped>
 #logo {
     z-index: 10;
+    display: flex;
+    justify-content: center;
     a {
         text-decoration: none;
         h1 {
             color: white;
+            text-align: center;
         }
     }
 }

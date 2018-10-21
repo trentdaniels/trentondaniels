@@ -26,40 +26,39 @@
 <style lang="scss" scoped>
 .projectList {
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    flex-flow: row nowrap;
+    align-items: stretch;
     justify-content: space-around;
     background-color: black;
     .list {
-       display: grid;
-       grid-template: 50% 50% / 50% 50%;
-       width: 100%;
-       height: 100%;
-       a {
-           text-decoration: none;
-           &:hover {
-               text-decoration: underline;
-               text-decoration-color: white;
-           }
-       }
-       .project {
-           align-self: center;
-           justify-self: center;
-           width: 100%;
-           height: 100%;
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           background-position: center center;
-           background-size: cover;
-           background-color: black;
-           h2 {
-               color: white;
-               text-shadow: 0px 0px 4px black;
-               text-decoration: none;
-           }
+        display: grid;
+        grid-template: 50% 50% / 50% 50%;
+        flex: 1 1 100%;
+        a {
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            position: relative;
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: white;
+            }
+           .project {
+                flex-basis: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-position: center center;
+                background-size: cover;
+                h2 {
+                    color: white;
+                    text-decoration: none;
+                }
 
-       } 
+            } 
+       }
+       
     }
 }
 </style>

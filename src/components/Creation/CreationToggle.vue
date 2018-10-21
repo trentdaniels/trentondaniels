@@ -27,6 +27,9 @@
     align-content: center;
     justify-content: center;
     background-color: black;
+    h4 {
+        text-align: center;
+    }
     ul {
         padding: 0;
         margin: 0;
@@ -35,6 +38,7 @@
         align-content: center;
         justify-content: space-around;
         height: 20%;
+        text-align: center;
         li {
             list-style-type: none;
             a {

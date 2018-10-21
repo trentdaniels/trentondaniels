@@ -39,7 +39,7 @@
 #projectToggle {
     display: flex;
     flex-flow: column nowrap;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     background-color: black;
     ul {
@@ -50,6 +50,7 @@
         align-content: center;
         justify-content: space-around;
         height: 20%;
+        text-align: center;
         li {
             list-style-type: none;
             a {
