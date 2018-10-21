@@ -1,7 +1,7 @@
 <template>
     <div id="social-media">
       <ul class="links">
-        <li><router-link to="/"><img src="@/assets/Logo.png" class="logo" /></router-link></li>
+        <li><router-link to="/"><img src="@/assets/logo.png" class="logo" /></router-link></li>
         <li v-for="link in links" :key="link.id" class="link">
             <a :href="link.url" target="_blank">
                 <img :src="link.img" />
