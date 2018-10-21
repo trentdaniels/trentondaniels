@@ -19,6 +19,14 @@
             return {
                 currentSlide: 0
             }
+        },
+        mounted() {
+            setInterval(() => {
+                this.currentSlide ++
+                if (this.currentSlide === this.solutions.length) {
+                    this.currentSlide = 0
+                }
+            }, 5000)
         }
         
     }
